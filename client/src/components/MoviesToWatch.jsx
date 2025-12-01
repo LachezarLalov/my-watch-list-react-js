@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SU_SERVER } from '../config.js';
+import { SU_DATA } from '../config.js';
 
 import MovieCard from './Movies/MovieCard';
 
@@ -7,7 +7,7 @@ export default function MoviesToWatch() {
 	const [movies, setMovies] = useState([]);
 
 	useEffect(() => {
-		fetch(`${SU_SERVER}/movies`)
+		fetch(`${SU_DATA}/movies`)
 			.then((res) => res.json())
 			.then((movies) => setMovies(Object.values(movies)))
 			.catch((err) => alert(err.message));

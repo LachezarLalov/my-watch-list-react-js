@@ -12,7 +12,7 @@ function App() {
 		<div className='text-white w-full min-h-screen bg-cover bg-no-repeat bg-[url("/background.jpg")] flex flex-col'>
 			<div className='absolute inset-0 bg-black/70 blur-3xl'></div>
 
-			<Header />
+			<Header className="flex-shrink-0"/>
 
 			<div className='flex items-center flex-grow justify-center mx-[10%]'>
 				<Routes>

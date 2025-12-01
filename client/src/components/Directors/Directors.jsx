@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
-import { SU_SERVER } from '../../config';
+import { SU_DATA } from '../../config';
 import DirectorsCard from './DirectorsCard';
 
 export default function Directors() {
 	const [directors, setDirectors] = useState([]);
 
 	useEffect(() => {
-		fetch(`${SU_SERVER}/directors`)
+		fetch(`${SU_DATA}/directors`)
 			.then((res) => res.json())
 			.then((data) => setDirectors(Object.values(data)))
 			.catch((err) => console.log(err));
