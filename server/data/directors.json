@@ -1,0 +1,146 @@
+[
+	{
+		"name": "Quentin Tarantino",
+		"country": "United States",
+		"born": "1963",
+		"dateOfDeath": null,
+		"imageUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg",
+		"topMovies": ["Reservoir Dogs", "Pulp Fiction", "Kill Bill: Vol. 1", "Inglourious Basterds", "Django Unchained"],
+		"oscars": "2",
+		"nominations": "5",
+		"bio": "Quentin Tarantino is an American filmmaker known for nonlinear storytelling, stylized violence, and dialogue-rich scripts. Rising to fame with Reservoir Dogs and especially Pulp Fiction, he revitalized 1990s independent cinema. His genre-blending style pulls from grindhouse, westerns, martial arts films, and pop culture. Tarantino’s films are widely studied and influential, shaping generations of filmmakers with their structure, energy and daring narrative choices."
+	},
+	{
+		"name": "Christopher Nolan",
+		"country": "United Kingdom / United States",
+		"born": "1970",
+		"dateOfDeath": null,
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Christopher_Nolan_Cannes_2018.jpg",
+		"topMovies": ["Memento", "The Dark Knight", "Inception", "Interstellar", "Dunkirk"],
+		"oscars": "2",
+		"nominations": "6",
+		"bio": "Christopher Nolan is a British-American director known for his cerebral, complex narratives and practical filmmaking techniques. After early success with Memento, he reshaped the superhero genre with The Dark Knight Trilogy and crafted ambitious blockbusters such as Inception and Interstellar. His films explore time, identity, memory and moral ambiguity, blending intellectual depth with mainstream appeal. Nolan is considered one of the most influential filmmakers of the 21st century."
+	},
+	{
+		"name": "Sergio Leone",
+		"country": "Italy",
+		"born": "1929",
+		"dateOfDeath": "1989",
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Sergio_Leone.jpg",
+		"topMovies": [
+			"A Fistful of Dollars",
+			"For a Few Dollars More",
+			"The Good, the Bad and the Ugly",
+			"Once Upon a Time in the West",
+			"Once Upon a Time in America"
+		],
+		"oscars": "0",
+		"nominations": "0",
+		"bio": "Sergio Leone was an Italian filmmaker who transformed the Western genre through his operatic 'Spaghetti Westerns.' His visual language—extreme close-ups, vast panoramic shots, long tension-filled sequences—has become iconic. Collaborating often with Ennio Morricone and Clint Eastwood, Leone crafted some of cinema’s most enduring imagery. His influence is visible across filmmakers worldwide, from Tarantino to Scorsese."
+	},
+	{
+		"name": "Martin Scorsese",
+		"country": "United States",
+		"born": "1942",
+		"dateOfDeath": null,
+		"imageUrl": "https://upload.wikimedia.org/wikipedia/commons/5/54/Martin_Scorsese-68749.jpg",
+		"topMovies": ["Mean Streets", "Taxi Driver", "Raging Bull", "Goodfellas", "The Departed"],
+		"oscars": "1",
+		"nominations": "10",
+		"bio": "Martin Scorsese is an American filmmaker whose work spans crime epics, psychological dramas, biopics and documentaries. Known for dynamic camera work, rich character studies and explorations of guilt, faith and morality, he emerged during the New Hollywood era and has remained a dominant creative force. His collaborations with Robert De Niro and Leonardo DiCaprio have produced many film classics, shaping modern cinematic storytelling."
+	},
+	{
+		"name": "David Fincher",
+		"country": "United States",
+		"born": "1962",
+		"dateOfDeath": null,
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/David_Fincher_(2012)_1.jpg",
+		"topMovies": ["Se7en", "The Game", "Fight Club", "Zodiac", "The Social Network"],
+		"oscars": "0",
+		"nominations": "3",
+		"bio": "David Fincher is an American director known for his dark, meticulous filmmaking style and psychologically intense narratives. Starting in music videos, he moved into features with thrillers like Se7en and Fight Club, which became cultural touchstones. His films often examine obsession, identity and technology, with a precise visual polish and controlled pacing. Fincher is widely regarded as one of the most influential directors of modern psychological cinema."
+	},
+	{
+		"name": "Steven Spielberg",
+		"country": "United States",
+		"born": "1946",
+		"dateOfDeath": null,
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Steven_Spielberg_by_Gage_Skidmore.jpg",
+		"topMovies": [
+			"Jaws",
+			"Close Encounters of the Third Kind",
+			"E.T. the Extra-Terrestrial",
+			"Jurassic Park",
+			"Schindler's List"
+		],
+		"oscars": "3",
+		"nominations": "19",
+		"bio": "Steven Spielberg is one of the most influential directors in film history, pioneering the modern blockbuster while also creating deeply impactful dramas. His films combine technical innovation with emotional storytelling, ranging from science-fiction adventures like E.T. and Jurassic Park to historical works like Schindler’s List and Saving Private Ryan. Spielberg’s career has shaped both the artistic and commercial sides of filmmaking across generations."
+	},
+	{
+		"name": "Tim Burton",
+		"country": "United States",
+		"born": "1958",
+		"dateOfDeath": null,
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Tim_Burton.jpg",
+		"topMovies": ["Pee-wee's Big Adventure", "Beetlejuice", "Batman", "Edward Scissorhands", "Big Fish"],
+		"oscars": "0",
+		"nominations": "2",
+		"bio": "Tim Burton is an American filmmaker known for his gothic, whimsical and surreal visual style. His movies often feature outsiders and fantastical worlds, blending dark humor with emotional undercurrents. Films like Beetlejuice, Batman and Edward Scissorhands have established Burton as a unique creative voice. His signature aesthetic—alongside collaborations with Johnny Depp and composer Danny Elfman—has made him instantly recognizable in modern cinema."
+	},
+	{
+		"name": "Akira Kurosawa",
+		"country": "Japan",
+		"born": "1910",
+		"dateOfDeath": "1998",
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Akirakurosawa-onthesetof7samurai-1953-page88.jpg",
+		"topMovies": ["Rashomon", "Ikiru", "Seven Samurai", "Throne of Blood", "Ran"],
+		"oscars": "1 (Honorary)",
+		"nominations": "3",
+		"bio": "Akira Kurosawa was a Japanese filmmaker whose influence spans the entire world of cinema. His work introduced new narrative structures, dynamic staging and visual storytelling techniques. Rashomon revolutionized film narrative with its multi-perspective structure, while Seven Samurai became a template for ensemble action films. Kurosawa's humanistic themes, innovative direction and collaborations with Toshiro Mifune shaped global filmmaking across generations."
+	},
+	{
+		"name": "Federico Fellini",
+		"country": "Italy",
+		"born": "1920",
+		"dateOfDeath": "1993",
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Federico_Fellini_010.jpg",
+		"topMovies": ["La Strada", "Nights of Cabiria", "La Dolce Vita", "8½", "Amarcord"],
+		"oscars": "5",
+		"nominations": "12",
+		"bio": "Federico Fellini was an Italian director famous for blending fantasy, memory and reality into lush, imaginative films. Beginning in Italian neorealism, he evolved into a more surreal and introspective style marked by dreamlike sequences and symbolic imagery. Works such as La Dolce Vita and 8½ explore fame, creativity and the human psyche. Fellini's artistic vision and experimentation with narrative structure have left a profound influence on European and world cinema."
+	},
+	{
+		"name": "Andrei Tarkovsky",
+		"country": "Russia / Soviet Union",
+		"born": "1932",
+		"dateOfDeath": "1986",
+		"imageUrl": "https://www.movienco.co.uk/images/personas/mini/9400/9477_th.webp",
+		"topMovies": ["Ivan's Childhood", "Andrei Rublev", "Solaris", "Mirror", "Stalker"],
+		"oscars": "0",
+		"nominations": "0",
+		"bio": "Andrei Tarkovsky was a Soviet Russian director celebrated for his poetic, philosophical and spiritual approach to filmmaking. His slow, meditative pacing, long takes, symbolic imagery and use of natural elements create immersive cinematic experiences. Films such as Andrei Rublev, Solaris and Stalker delve into themes of memory, faith, sacrifice and human existence. Tarkovsky's influence is immense, particularly within art-house and contemplative cinema."
+	},
+	{
+		"name": "Stanley Kubrick",
+		"country": "United States / United Kingdom",
+		"born": "1928",
+		"dateOfDeath": "1999",
+		"imageUrl": "https://creepycatalog.com/wp-content/uploads/sites/2/2022/08/Stanley_Kubrick_Portrait.jpg",
+		"topMovies": ["Paths of Glory", "Dr. Strangelove", "2001: A Space Odyssey", "A Clockwork Orange", "The Shining"],
+		"oscars": "1",
+		"nominations": "13",
+		"bio": "Stanley Kubrick was an American-born director known for his meticulous craftsmanship, genre-spanning films and bold visual experimentation. His works—from the war drama Paths of Glory to the sci-fi epic 2001: A Space Odyssey and the psychological horror The Shining—redefined cinematic language. Kubrick’s perfectionism, research-heavy approach and innovative storytelling made him one of the most respected and influential filmmakers of all time."
+	},
+	{
+		"name": "Charlie Chaplin",
+		"country": "United Kingdom / United States",
+		"born": "1889",
+		"dateOfDeath": "1977",
+		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Charlie_Chaplin.jpg",
+		"topMovies": ["The Kid", "The Gold Rush", "City Lights", "Modern Times", "The Great Dictator"],
+		"oscars": "3",
+		"nominations": "3",
+		"bio": "Charlie Chaplin was an English-born actor, writer, composer and director who became one of cinema’s first global icons. Through his beloved character 'The Tramp,' Chaplin blended slapstick humor with emotional depth and social commentary. His silent-era masterpieces—such as City Lights and Modern Times—demonstrate his command of visual storytelling, while The Great Dictator showcased his bold political voice. Chaplin's pioneering work shaped the foundation of modern comedy and filmmaking."
+	}
+]
