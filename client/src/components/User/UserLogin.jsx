@@ -1,26 +1,13 @@
 import { Link } from 'react-router';
+import useControlledFrom from '../../hooks/useControlledFrom';
 
 export default function UserLogin() {
-	const onSubmitHandler = (e) => {
-		e.preventDefault();
-
-		const formData = new FormData(e.target);
-		const email = formData.get('email');
-		const password = formData.get('password');
-    
-		console.log(email, password);
-	};
+	const { values, changeHandler, submitHandler } = useControlledFrom({ email: '', password: '' }, (values) => {
+		console.log(values);
+	});
 
 	return (
 		<>
-			{/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-white">
-        <body class="h-full">
-        ```
-      */}
 			<div className='flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 z-50'>
 				<div className='sm:mx-auto sm:w-full sm:max-w-sm'>
 					{/* <img
@@ -32,7 +19,7 @@ export default function UserLogin() {
 				</div>
 
 				<div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
-					<form onSubmit={onSubmitHandler} className='space-y-3'>
+					<form onSubmit={submitHandler} className='space-y-3'>
 						<div>
 							<label htmlFor='email' className='block text-sm/6 font-medium '>
 								Email address
@@ -42,6 +29,8 @@ export default function UserLogin() {
 									id='email'
 									name='email'
 									type='email'
+									value={values.email}
+									onChange={changeHandler}
 									required
 									autoComplete='email'
 									className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6'
@@ -65,6 +54,8 @@ export default function UserLogin() {
 									id='password'
 									name='password'
 									type='password'
+									value={values.password}
+									onChange={changeHandler}
 									required
 									autoComplete='current-password'
 									className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6'
