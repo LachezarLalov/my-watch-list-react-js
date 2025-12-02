@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-export default function useControlledForm(initialValues, onSubmit) {
+export default function useControlledForm(initialValues, onSubmit, url) {
 	const [values, setValues] = useState(initialValues);
 
 	const navigate = useNavigate();
-
-	const url = '/login';
 
 	const changeHandler = (e) => {
 		setValues((state) => ({

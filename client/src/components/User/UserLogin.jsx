@@ -3,12 +3,14 @@ import userApi from '../../utils/userApi';
 import useControlledForm from '../../hooks/useControlledFrom';
 
 export default function UserLogin() {
+	const url = '/login';
+
 	const initialValues = {
 		email: '',
 		password: '',
 	};
 
-	const { values, changeHandler, submitHandler } = useControlledForm(initialValues, userApi);
+	const { values, changeHandler, submitHandler } = useControlledForm(initialValues, userApi, url);
 
 	// const navigate = useNavigate();
 
