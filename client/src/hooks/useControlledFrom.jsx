@@ -1,25 +1,32 @@
-// import {useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
+export default function useControlledForm(initialValues, onSubmit) {
+	const [values, setValues] = useState(initialValues);
 
-// export default function useControlledFrom(initialValues, onSubmit) {
-// 	const [values, setValues] = useState(initialValues);
+	const navigate = useNavigate();
 
-// 	// TODO handle checkbox handle
-// 	const changeHandler = (e) => {
-// 		setValues((state) => ({
-// 			...state,
-// 			[e.target.name]: e.target.value,
-// 		}));
-// 	};
+	const url = '/login';
 
-// 	const submitHandler = async (e) => {
-// 		e.preventDefault();
+	const changeHandler = (e) => {
+		setValues((state) => ({
+			...state,
+			[e.target.name]: e.target.value,
+		}));
+	};
 
-// 		await onSubmit(values);
+	const submitHandler = async (e) => {
+		e.preventDefault();
 
-// 		setValues(initialValues);
-// 	};
+		const result = await onSubmit(values, url);
+		console.log(result);
 
-// 	return { values, changeHandler, submitHandler };
-// }
+		if (result.email) {
+			navigate('/');
+		}
 
+		setValues(initialValues);
+	};
+
+	return { values, changeHandler, submitHandler };
+}

@@ -1,38 +1,42 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import { Link } from 'react-router';
 import userApi from '../../utils/userApi';
+import useControlledForm from '../../hooks/useControlledFrom';
 
 export default function UserLogin() {
-	const navigate = useNavigate();
-
 	const initialValues = {
 		email: '',
 		password: '',
 	};
 
-	const url = '/login';
+	const { values, changeHandler, submitHandler } = useControlledForm(initialValues, userApi);
 
-	const [values, setValues] = useState(initialValues);
+	// const navigate = useNavigate();
 
-	const changeHandler = (e) => {
-		setValues((state) => ({
-			...state,
-			[e.target.name]: e.target.value,
-		}));
-	};
+	//
 
-	const submitHandler = async (e) => {
-		e.preventDefault();
+	// const url = '/login';
 
-		const result = await userApi(values, url);
-		console.log(result);
+	// const [values, setValues] = useState(initialValues);
 
-		if (result.email) {
-			navigate('/');
-		}
+	// const changeHandler = (e) => {
+	// 	setValues((state) => ({
+	// 		...state,
+	// 		[e.target.name]: e.target.value,
+	// 	}));
+	// };
 
-		setValues(initialValues);
-	};
+	// const submitHandler = async (e) => {
+	// 	e.preventDefault();
+
+	// 	const result = await userApi(values, url);
+	// 	console.log(result);
+
+	// 	if (result.email) {
+	// 		navigate('/');
+	// 	}
+
+	// 	setValues(initialValues);
+	// };
 
 	return (
 		<div className='flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 z-50'>
