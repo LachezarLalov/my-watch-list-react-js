@@ -1,23 +1,25 @@
-import { useState } from 'react';
+// import {useState } from 'react';
 
-export default function useControlledFrom(initialValues, onSubmit) {
-	const [values, setValues] = useState(initialValues);
 
-	// TODO handle checkbox handle
-	const changeHandler = (e) => {
-		setValues((state) => ({
-			...state,
-			[e.target.name]: e.target.value,
-		}));
-	};
+// export default function useControlledFrom(initialValues, onSubmit) {
+// 	const [values, setValues] = useState(initialValues);
 
-	const submitHandler = async (e) => {
-		e.preventDefault();
+// 	// TODO handle checkbox handle
+// 	const changeHandler = (e) => {
+// 		setValues((state) => ({
+// 			...state,
+// 			[e.target.name]: e.target.value,
+// 		}));
+// 	};
 
-		await onSubmit(values);
+// 	const submitHandler = async (e) => {
+// 		e.preventDefault();
 
-		setValues(initialValues);
-	};
+// 		await onSubmit(values);
 
-	return { values, changeHandler, submitHandler };
-}
+// 		setValues(initialValues);
+// 	};
+
+// 	return { values, changeHandler, submitHandler };
+// }
+

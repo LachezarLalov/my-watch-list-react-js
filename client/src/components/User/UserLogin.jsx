@@ -1,27 +1,38 @@
-import { Link } from 'react-router';
-import useControlledFrom from '../../hooks/useControlledFrom';
-import { SU_USERS } from '../../config';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router';
+import userApi from '../../utils/userApi';
 
 export default function UserLogin() {
-	const { values, changeHandler, submitHandler } = useControlledFrom({ email: '', password: '' }, async (values) => {
-		const { email, password } = values;
+	const navigate = useNavigate();
 
-		const res = await fetch(`${SU_USERS}/login`, {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify({ email, password }),
-		});
+	const initialValues = {
+		email: '',
+		password: '',
+	};
 
-		if (res.ok) {
-			const result = await res.json();
-			console.log('Login Success!', result);
-		} else {
-			const error = await res.json();
-			console.error('Login Failed:', error.message);
+	const url = '/login';
+
+	const [values, setValues] = useState(initialValues);
+
+	const changeHandler = (e) => {
+		setValues((state) => ({
+			...state,
+			[e.target.name]: e.target.value,
+		}));
+	};
+
+	const submitHandler = async (e) => {
+		e.preventDefault();
+
+		const result = await userApi(values, url);
+		console.log(result);
+
+		if (result.email) {
+			navigate('/');
 		}
-	});
+
+		setValues(initialValues);
+	};
 
 	return (
 		<div className='flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 z-50'>
