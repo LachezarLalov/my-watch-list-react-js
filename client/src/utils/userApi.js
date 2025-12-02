@@ -1,17 +1,19 @@
 import { SU_USERS } from '../config';
 
-export default async function userApi(values, url) {
-	const { email, password } = values;
-
+export default async function userApi(values, url, method) {
+	const { username, email, password } = values;
+	console.log(method);
 	const options = {
-		method: 'POST',
+		method: method,
 		headers: {
 			'content-type': 'application/json',
 		},
 	};
 
-	if (url === '/login' || url === '/register') {
+	if (url === '/login') {
 		options.body = JSON.stringify({ email, password });
+	} else if (url === '/register') {
+		options.body = JSON.stringify({ username, email, password });
 	}
 
 	const response = await fetch(`${SU_USERS}/${url}`, options);

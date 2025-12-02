@@ -4,41 +4,14 @@ import useControlledForm from '../../hooks/useControlledFrom';
 
 export default function UserLogin() {
 	const url = '/login';
+	const method = 'POST';
 
 	const initialValues = {
 		email: '',
 		password: '',
 	};
 
-	const { values, changeHandler, submitHandler } = useControlledForm(initialValues, userApi, url);
-
-	// const navigate = useNavigate();
-
-	//
-
-	// const url = '/login';
-
-	// const [values, setValues] = useState(initialValues);
-
-	// const changeHandler = (e) => {
-	// 	setValues((state) => ({
-	// 		...state,
-	// 		[e.target.name]: e.target.value,
-	// 	}));
-	// };
-
-	// const submitHandler = async (e) => {
-	// 	e.preventDefault();
-
-	// 	const result = await userApi(values, url);
-	// 	console.log(result);
-
-	// 	if (result.email) {
-	// 		navigate('/');
-	// 	}
-
-	// 	setValues(initialValues);
-	// };
+	const { values, changeHandler, submitHandler } = useControlledForm(initialValues, userApi, url, method);
 
 	return (
 		<div className='flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 z-50'>
