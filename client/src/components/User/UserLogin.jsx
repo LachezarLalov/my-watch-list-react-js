@@ -3,6 +3,7 @@ import userApi from '../../utils/userApi';
 import useControlledForm from '../../hooks/useControlledFrom';
 
 export default function UserLogin() {
+
 	const url = '/login';
 	const method = 'POST';
 
@@ -11,12 +12,17 @@ export default function UserLogin() {
 		password: '',
 	};
 
-	const { values, changeHandler, submitHandler } = useControlledForm(initialValues, userApi, url, method);
+	const { values, changeHandler, submitHandler, errorHandler, error } = useControlledForm(
+		initialValues,
+		userApi,
+		url,
+		method
+	);
 
 	return (
 		<div className='flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 z-50'>
 			<div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-				<h2 className='-mt-15 text-center text-2xl/9 font-bold tracking-tight'>Sign in</h2>
+				<h2 className='-mt-5 text-center text-2xl/9 font-bold tracking-tight'>Sign in</h2>
 			</div>
 
 			<div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
@@ -32,6 +38,7 @@ export default function UserLogin() {
 								type='email'
 								value={values.email}
 								onChange={changeHandler}
+								onFocus={errorHandler}
 								required
 								autoComplete='email'
 								className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6'
@@ -52,10 +59,14 @@ export default function UserLogin() {
 								type='password'
 								value={values.password}
 								onChange={changeHandler}
+								onFocus={errorHandler}
 								required
 								autoComplete='current-password'
 								className='block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6'
 							/>
+							<div className='flex justify-center h-5 mt-1'>
+								{error && <p className='text-red-500 text-sm'>{error}</p>}
+							</div>
 						</div>
 					</div>
 
@@ -69,7 +80,7 @@ export default function UserLogin() {
 					</div>
 				</form>
 
-				<p className='mt-10 text-center text-sm/6 '>
+				<p className=' mt-10 text-center text-sm/6 '>
 					Not a member?{' '}
 					<Link to='/register' className='font-bold text-white hover:text-indigo-500'>
 						Sign up here

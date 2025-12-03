@@ -23,7 +23,7 @@ export default async function userApi(values, url, method) {
 	// TODO fix per request type
 	if (!response.ok || response.status === 204) {
 		const error = await response.json();
-		alert(error.message);
+		// alert(error.message);
 		return error;
 	}
 

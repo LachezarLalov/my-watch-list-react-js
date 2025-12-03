@@ -1,5 +1,4 @@
 import { Route, Routes } from 'react-router';
-import { useState } from 'react';
 
 import Header from './components/Header';
 import Home from './components/Home';
@@ -9,29 +8,30 @@ import Directors from './components/Directors/Directors';
 import UserLogin from './components/User/UserLogin';
 import UserRegister from './components/User/UserRegister';
 import UserLogout from './components/User/UserLogout';
-import UserContext from './contexts/UserContext';
+import { UserProvider } from './contexts/UserContext';
+
 
 function App() {
-	const [user, setUser] = useState({});
+	// const [user, setUser] = useState({});
 
-	const loginHandler = (user) => {
-		setUser(user);
-	};
+	// const loginHandler = (user) => {
+	// 	setUser(user);
+	// };
 
-	const logoutHandler = () => {
-		setUser({});
-	};
+	// const logoutHandler = () => {
+	// 	setUser({});
+	// };
 
-	const contextValue = {
-		user,
-		isAutheticated: !!user.email,
-		onLogin: loginHandler,
-		onLogout: logoutHandler,
-	};
+	// const contextValue = {
+	// 	user,
+	// 	isAutheticated: !!user.email,
+	// 	onLogin: loginHandler,
+	// 	onLogout: logoutHandler,
+	// };
 
 	return (
-		<UserContext.Provider value={contextValue}>
-			<div className='text-white w-full min-h-screen bg-cover bg-no-repeat bg-[url("/background.jpg")] flex flex-col'>
+		<UserProvider>
+			<div className='text-white w-full min-h-screen bg-cover bg-no-repeat bg-[url("/background.jpg")] flex flex-col '>
 				<div className='absolute inset-0 bg-black/70 blur-3xl'></div>
 
 				<Header className='flex-shrink-0' />
@@ -49,7 +49,7 @@ function App() {
 
 				<Footer />
 			</div>
-		</UserContext.Provider>
+		</UserProvider>
 	);
 }
 

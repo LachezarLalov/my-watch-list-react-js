@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { SU_DATA } from '../../config.js';
 
 import MovieCard from './MovieCard.jsx';
+import { Link } from 'react-router';
 
 export default function MoviesToWatch() {
 	const [movies, setMovies] = useState([]);
@@ -27,6 +28,12 @@ export default function MoviesToWatch() {
 					/>
 				))}
 			</div>
+			<h2 className='text-center text-xl font-bold tracking-tight'>
+				You have watched all this movies? <br />
+				<Link to='/catalog' className='mt-2 text-white hover:text-amber-300 text-3xl '>
+					See more
+				</Link>
+			</h2>
 		</div>
 	);
 }
