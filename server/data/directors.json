@@ -12,7 +12,7 @@
 	},
 	{
 		"name": "Christopher Nolan",
-		"country": "United Kingdom / United States",
+		"country": "United Kingdom",
 		"born": "1970",
 		"dateOfDeath": null,
 		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Christopher_Nolan_Cannes_2018.jpg",
@@ -112,7 +112,7 @@
 	},
 	{
 		"name": "Andrei Tarkovsky",
-		"country": "Russia / Soviet Union",
+		"country": "Soviet Union",
 		"born": "1932",
 		"dateOfDeath": "1986",
 		"imageUrl": "https://www.movienco.co.uk/images/personas/mini/9400/9477_th.webp",
@@ -123,7 +123,7 @@
 	},
 	{
 		"name": "Stanley Kubrick",
-		"country": "United States / United Kingdom",
+		"country": "United Kingdom",
 		"born": "1928",
 		"dateOfDeath": "1999",
 		"imageUrl": "https://creepycatalog.com/wp-content/uploads/sites/2/2022/08/Stanley_Kubrick_Portrait.jpg",
@@ -134,7 +134,7 @@
 	},
 	{
 		"name": "Charlie Chaplin",
-		"country": "United Kingdom / United States",
+		"country": "United Kingdom",
 		"born": "1889",
 		"dateOfDeath": "1977",
 		"imageUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Charlie_Chaplin.jpg",

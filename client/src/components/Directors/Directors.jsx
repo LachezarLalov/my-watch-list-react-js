@@ -19,7 +19,12 @@ export default function Directors() {
 
 			<div className='grid grid-cols-6 gap-4 m-10'>
 				{directors.map((director) => (
-					<DirectorsCard key={director.name} name={director.name} imageUrl={director.imageUrl} />
+					<DirectorsCard
+						key={director.name}
+						name={director.name}
+						imageUrl={director.imageUrl}
+						country={director.country}
+					/>
 				))}
 			</div>
 		</div>

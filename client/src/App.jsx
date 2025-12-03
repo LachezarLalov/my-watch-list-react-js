@@ -8,6 +8,7 @@ import MovieCatalog from './components/Movies/MovieCatalog';
 import Directors from './components/Directors/Directors';
 import UserLogin from './components/User/UserLogin';
 import UserRegister from './components/User/UserRegister';
+import UserLogout from './components/User/UserLogout';
 import UserContext from './contexts/UserContext';
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
 						<Route path='/directors' element={<Directors />} />
 						<Route path='/login' element={<UserLogin />} />
 						<Route path='/register' element={<UserRegister />} />
+						<Route path='/logout' element={<UserLogout />} />
 					</Routes>
 				</div>
 

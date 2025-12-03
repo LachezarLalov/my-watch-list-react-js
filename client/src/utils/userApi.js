@@ -2,7 +2,6 @@ import { SU_USERS } from '../config';
 
 export default async function userApi(values, url, method) {
 	const { username, email, password } = values;
-	console.log(method);
 	const options = {
 		method: method,
 		headers: {
@@ -16,10 +15,12 @@ export default async function userApi(values, url, method) {
 		options.body = JSON.stringify({ username, email, password });
 	}
 
-	const response = await fetch(`${SU_USERS}/${url}`, options);
+	const response = await fetch(`${SU_USERS}${url}`, options);
 
+	if (url === '/logout') {
+		return response;
+	}
 	// TODO fix per request type
-
 	if (!response.ok || response.status === 204) {
 		const error = await response.json();
 		alert(error.message);

@@ -1,10 +1,13 @@
-export default function MovieCard({ title, imageUrl }) {
+export default function MovieCard({ title, imageUrl, director, year }) {
 	return (
-		<div key={title} className='min-w-60 bg-black/70 m-5 text-center rounded-xl m-2 sm:py-1'>
-			<h1 className='m-2 text-[clamp(1rem,1.2vw,2rem)] font-bold m-4'>{title}</h1>
+		<div
+			key={title}
+			className='transition-all duration-300 ease-in-out hover:border-amber-400 hover:bg-amber-200/20 hover:shadow-amber-300/70 min-w-60 bg-black/70 m-5 text-center rounded-xl sm:py-1 shadow-amber-300/50 shadow-2xl border-amber-200/80 border-2 border-solid'
+		>
+			<h1 className='m-2 text-[clamp(1.2rem,1.2vw,1.6rem)] font-bold m-4'>{title}</h1>
 			<img src={imageUrl} className='w-200 h-80 object-cover size-50' />
-			<h2>Director</h2>
-			<h2>Year</h2>
+			<h2 className='m-1 mt-2 font-bold'>{director}</h2>
+			<h2 className='m-1 text-[14px]'>{year}</h2>
 		</div>
 	);
 }
