@@ -8,41 +8,40 @@ export default function Header() {
 		{ name: 'Home', href: '/' },
 		{ name: 'Movies', href: '/catalog' },
 		{ name: 'Directors', href: '/directors' },
-		// { name: 'Actors', href: '/directors' },
+		{ name: 'Search', href: '/search' },
 	];
 
 	return (
 		<header className='z-100'>
-			<nav aria-label='Global' className='flex items-center justify-between aling-center p-6 lg:px-8'>
-				<div className='flex flex-nowrap lg:glex-1'></div>
-				<div className='flex text-1xl justify-center align-center items-center'>
-					{user ? (
-						<p className='mr-10'>{`Welcome back, ${user?.username}`}</p>
-					) : (
-						<p className='mr-10'>{`Welcome, stranger!`}</p>
-					)}
+			<nav aria-label='Global' className='flex items-center justify-between p-6 lg:px-8'>
+				{/* Left spacer (makes middle truly centered) */}
+				<div className='flex flex-1 items-center'>
+					<p className='mr-10'>{user ? `Welcome back, ${user?.username}!` : 'Welcome, stranger!'}</p>
 				</div>
 
+				{/* Center navigation */}
 				<div className='flex justify-center flex-1'>
-					{/* <Link to='/' className=''>
-						<span className='sr-only'>Home</span>
-						<img src='https://www.svgrepo.com/show/176284/cinema-screen.svg' className='hover:text-amber-300 h-10 invert' />
-					</Link> */}
 					{navigation.map((item) => (
-						<Link key={item.name} to={item.href} className='hover:text-amber-300 text-2xl font-bold m-5'>
+						<Link key={item.name} to={item.href} className='hover:text-amber-300 text-2xl font-bold mx-5'>
 							{item.name}
 						</Link>
 					))}
 				</div>
 
-				<div className='flex align-center items-center'>
+				{/* Right side */}
+				<div className='flex flex-1 justify-end items-center'>
 					{user ? (
-						<Link to='/logout' className='hover:text-amber-300 text=sm/6 font-semibold'>
-							Logout <span aria-hidden='true'>&rarr;</span>
+						<Link
+							to='/logout'
+							className='text-1xl hover:text-amber-300 font-semibold
+						transition-all duration-300 ease-in-out hover:shadow-amber-600/100 shadow-2xs
+						'
+						>
+							Logout
 						</Link>
 					) : (
-						<Link to='/login' className='hover:text-amber-300 text=sm/6 font-semibold'>
-							Login in <span aria-hidden='true'>&rarr;</span>
+						<Link to='/login' className='text-1xl hover:text-amber-300  font-semibold'>
+							Login
 						</Link>
 					)}
 				</div>

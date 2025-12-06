@@ -1,18 +1,17 @@
-import { Navigate } from 'react-router';
-import userApi from '../../utils/userApi';
+import { useNavigate } from 'react-router';
+
 import { useUserContext } from '../../contexts/UserContext';
 
 export default function UserLogout() {
 	const { logoutHandler } = useUserContext();
+	const navigate = useNavigate();
 
-	const url = '/logout';
-	const method = 'GET';
-	const values = '';
+	// const url = '/logout';
+	// const method = 'GET';
+	// const values = '';
 
-	console.log('lgooout');
+	// userApi(values, url, method);
+
 	logoutHandler();
-
-	userApi(values, url, method);
-	// TODO set user to null
-	return <Navigate to='/' />;
+	navigate('/');
 }

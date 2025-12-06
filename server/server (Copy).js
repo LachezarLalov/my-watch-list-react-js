@@ -72,7 +72,7 @@
 		CredentialError,
 	};
 
-	const { ServiceError: ServiceError$1, RequestError: RequestError$1 } = errors;
+	const { ServiceError: ServiceError$1 } = errors;
 
 	function createHandler(plugins, services) {
 		return async function handler(req, res) {
@@ -176,17 +176,12 @@
 		const tokens = url.pathname.split('/').filter((x) => x.length > 0);
 		const serviceName = tokens.shift();
 		const queryString = url.search.split('?')[1] || '';
-		let query = '';
-		try {
-			query = queryString
-				.split('&')
-				.filter((s) => s != '')
-				.map((x) => x.split('='))
-				.reduce((p, [k, v]) => Object.assign(p, { [k]: decodeURIComponent(v.replace(/\+/g, ' ')) }), {});
-		} catch (err) {
-			console.error(err);
-			throw new RequestError$1(`Invalid query "${queryString}": ${err.message}`);
-		}
+		const query = queryString
+			.split('&')
+			.filter((s) => s != '')
+			.map((x) => x.split('='))
+			.reduce((p, [k, v]) => Object.assign(p, { [k]: decodeURIComponent(v.replace(/\+/g, ' ')) }), {});
+
 		let body;
 		// If req stream has ended body has been parsed
 		if (req.readableEnded) {
@@ -322,7 +317,6 @@
 	};
 
 	const uuid$1 = util.uuid;
-	const { RequestError: RequestError$2 } = errors;
 
 	const data = fs__default['default'].existsSync('./data')
 		? fs__default['default'].readdirSync('./data').reduce((p, c) => {
@@ -345,56 +339,6 @@
 					responseData = responseData[token];
 				}
 			}
-
-			try {
-				if (query.where && typeof responseData === 'object') {
-					if (query.where.trim() === '') {
-						throw new Error(`Invalid WHERE queryString syntax`);
-					}
-					const [field, rawValue] = query.where.split('=');
-
-					if (field.trim() === '') {
-						throw new Error(`Field can not be empty string: ${query.where}`);
-					}
-
-					if (!rawValue) {
-						throw new RequestError$2(`Missing "=" %3D between field and value: ${query.where}`);
-					}
-
-					if (!(rawValue.startsWith('"') && rawValue.endsWith('"'))) {
-						throw new RequestError$2(`WHERE value must be in quotes %22 : ${query.where}`);
-					}
-					const value = rawValue.replace(/^"|"$/g, '');
-
-					const filtered = Object.entries(responseData).filter(([id, obj]) => obj[field] == value);
-
-					responseData = Object.fromEntries(filtered);
-				}
-
-				if (query.sortBy && typeof responseData === 'object') {
-					const [field, direction] = query.sortBy.split(' ');
-
-					if (!field) {
-						throw new Error(`Invalid sortBy syntax: ${query.sortBy}`);
-					}
-
-					const sortOrder = direction === 'desc' ? -1 : 1;
-
-					const entries = Object.entries(responseData).sort(([idA, a], [idB, b]) => {
-						const valA = a[field];
-						const valB = b[field];
-
-						const isNumber = typeof valA === 'number' && typeof valB === 'number';
-						return (isNumber ? valA - valB : valA.localeCompare(valB)) * sortOrder;
-					});
-
-					responseData = Object.fromEntries(entries);
-				}
-			} catch (err) {
-				console.error(err);
-				throw new RequestError$2(err.message || 'Invalid query');
-			}
-
 			return responseData;
 		},
 		post: (context, tokens, query, body) => {
@@ -510,7 +454,7 @@
 
 	var users = userService.parseRequest;
 
-	const { NotFoundError: NotFoundError$1, RequestError: RequestError$3 } = errors;
+	const { NotFoundError: NotFoundError$1, RequestError: RequestError$1 } = errors;
 
 	var crud = {
 		get,
@@ -527,7 +471,7 @@
         }
         */
 		if (tokens.length > 1) {
-			throw new RequestError$3();
+			throw new RequestError$1();
 		}
 	}
 
@@ -669,7 +613,7 @@
 			if (err.message.includes('does not exist')) {
 				throw new NotFoundError$1();
 			} else {
-				throw new RequestError$3(err.message);
+				throw new RequestError$1(err.message);
 			}
 		}
 
@@ -683,7 +627,7 @@
 
 		validateRequest(context, tokens);
 		if (tokens.length > 0) {
-			throw new RequestError$3('Use PUT to update records');
+			throw new RequestError$1('Use PUT to update records');
 		}
 		context.canAccess(undefined, body);
 
@@ -693,7 +637,7 @@
 		try {
 			responseData = context.storage.add(context.params.collection, body);
 		} catch (err) {
-			throw new RequestError$3();
+			throw new RequestError$1();
 		}
 
 		return responseData;
@@ -704,7 +648,7 @@
 
 		validateRequest(context, tokens);
 		if (tokens.length != 1) {
-			throw new RequestError$3('Missing entry ID');
+			throw new RequestError$1('Missing entry ID');
 		}
 
 		let responseData;
@@ -721,7 +665,7 @@
 		try {
 			responseData = context.storage.set(context.params.collection, tokens[0], body);
 		} catch (err) {
-			throw new RequestError$3();
+			throw new RequestError$1();
 		}
 
 		return responseData;
@@ -732,7 +676,7 @@
 
 		validateRequest(context, tokens);
 		if (tokens.length != 1) {
-			throw new RequestError$3('Missing entry ID');
+			throw new RequestError$1('Missing entry ID');
 		}
 
 		let responseData;
@@ -749,7 +693,7 @@
 		try {
 			responseData = context.storage.merge(context.params.collection, tokens[0], body);
 		} catch (err) {
-			throw new RequestError$3();
+			throw new RequestError$1();
 		}
 
 		return responseData;
@@ -758,7 +702,7 @@
 	function del(context, tokens, query, body) {
 		validateRequest(context, tokens);
 		if (tokens.length != 1) {
-			throw new RequestError$3('Missing entry ID');
+			throw new RequestError$1('Missing entry ID');
 		}
 
 		let responseData;
@@ -775,7 +719,7 @@
 		try {
 			responseData = context.storage.delete(context.params.collection, tokens[0]);
 		} catch (err) {
-			throw new RequestError$3();
+			throw new RequestError$1();
 		}
 
 		return responseData;
@@ -878,8 +822,8 @@
 	const { uuid: uuid$2 } = util;
 
 	function initPlugin(settings) {
-		const storage = createInstance(settings.seedData, true);
-		const protectedStorage = createInstance(settings.protectedData, false);
+		const storage = createInstance(settings.seedData);
+		const protectedStorage = createInstance(settings.protectedData);
 
 		return function decoreateContext(context, request) {
 			context.storage = storage;
@@ -891,49 +835,8 @@
 	 * Create storage instance and populate with seed data
 	 * @param {Object=} seedData Associative array with data. Each property is an object with properties in format {key: value}
 	 */
-	function createInstance(seedData = {}, isMain = false) {
+	function createInstance(seedData = {}) {
 		const collections = new Map();
-		const path = require('path');
-		const storageFile = path.join(__dirname, 'storage', 'data.json');
-
-		if (isMain && fs.existsSync(storageFile)) {
-			const json = JSON.parse(fs.readFileSync(storageFile, 'utf8'));
-			for (const collectionName in json) {
-				const col = new Map();
-				for (const id in json[collectionName]) {
-					col.set(id, json[collectionName][id]);
-				}
-				collections.set(collectionName, col);
-			}
-		}
-
-		function saveToFile() {
-			if (!isMain) return;
-
-			const output = {};
-			for (const [colName, collection] of collections.entries()) {
-				output[colName] = {};
-				for (const [id, record] of collection.entries()) {
-					output[colName][id] = record;
-				}
-			}
-
-			const dir = path.join(__dirname, 'storage');
-			if (!fs.existsSync(dir)) fs.mkdirSync(dir);
-
-			fs.writeFileSync(storageFile, JSON.stringify(output, null, 2));
-		}
-
-		if (fs.existsSync('./storage/data.json')) {
-			const json = JSON.parse(fs.readFileSync('./storage/data.json'));
-			for (const collectionName in json) {
-				const col = new Map();
-				for (const id in json[collectionName]) {
-					col.set(id, json[collectionName][id]);
-				}
-				collections.set(collectionName, col);
-			}
-		}
 
 		// Initialize seed data from file
 		for (let collectionName in seedData) {
@@ -1000,7 +903,6 @@
 
 			record._createdOn = Date.now();
 			targetCollection.set(id, record);
-			saveToFile();
 			return Object.assign(deepCopy(record), { _id: id });
 		}
 
@@ -1024,7 +926,6 @@
 			const record = assignSystemProps(deepCopy(data), existing);
 			record._updatedOn = Date.now();
 			targetCollection.set(id, record);
-			saveToFile();
 			return Object.assign(deepCopy(record), { _id: id });
 		}
 
@@ -1048,7 +949,6 @@
 			const record = assignClean(existing, data);
 			record._updatedOn = Date.now();
 			targetCollection.set(id, record);
-			saveToFile();
 			return Object.assign(deepCopy(record), { _id: id });
 		}
 
@@ -1067,7 +967,6 @@
 				throw new ReferenceError('Entry does not exist: ' + id);
 			}
 			targetCollection.delete(id);
-			saveToFile();
 
 			return { _deletedOn: Date.now() };
 		}
@@ -1154,7 +1053,7 @@
 
 	var storage = initPlugin;
 
-	const { ConflictError: ConflictError$1, CredentialError: CredentialError$1, RequestError: RequestError$4 } = errors;
+	const { ConflictError: ConflictError$1, CredentialError: CredentialError$1, RequestError: RequestError$2 } = errors;
 
 	function initPlugin$1(settings) {
 		const identity = settings.identity;
@@ -1191,7 +1090,7 @@
 					body[identity].length == 0 ||
 					body.password.length == 0
 				) {
-					throw new RequestError$4('Missing fields');
+					throw new RequestError$2('Missing fields');
 				} else if (context.protectedStorage.query('users', { [identity]: body[identity] }).length !== 0) {
 					throw new ConflictError$1(`A user with the same ${identity} already exists`);
 				} else {
@@ -1283,7 +1182,7 @@
 	 */
 
 	const {
-		RequestError: RequestError$5,
+		RequestError: RequestError$3,
 		ConflictError: ConflictError$2,
 		CredentialError: CredentialError$2,
 		AuthorizationError: AuthorizationError$2,
@@ -1435,20 +1334,24 @@
 				hashedPassword: 'fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302',
 			},
 			'35c62d76-8152-4626-8712-eeb96381be21': {
-				_id: '123',
-				username: 'Ogi',
 				email: 'og@abv.bg',
-				password: '123',
-				topMovies: '',
-				watchList: '',
+				username: 'OgiG',
+				hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
 			},
 			'35c62d76-8152-4626-8712-eeb96381be22': {
-				_id: '1234',
-				username: 'Dimi',
 				email: 'dimi@abv.bg',
-				password: '123',
-				topMovies: '',
-				watchList: '',
+				username: 'Dimitar',
+				hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
+			},
+			'35c62d76-8152-4626-8712-eeb96381be23': {
+				email: 'kito@abv.bg',
+				username: 'Kitodar',
+				hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
+			},
+			'35c62d76-8152-4626-8712-eeb96381be24': {
+				email: 'mimi@abv.bg',
+				username: 'Milena',
+				hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
 			},
 		},
 		sessions: {},
