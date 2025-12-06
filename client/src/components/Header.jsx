@@ -5,11 +5,13 @@ export default function Header() {
 	const { user } = useUserContext();
 	const isAuth = user && user.isAuthenticated;
 
+	// TODO dynamicly hide current page
 	const navigation = [
 		{ name: 'Home', href: '/' },
 		{ name: 'Movies', href: '/catalog' },
 		{ name: 'Directors', href: '/directors' },
 		...(isAuth ? [{ name: 'Search', href: '/search' }] : []),
+		...(isAuth ? [{ name: 'Add movie', href: '/movies/create' }] : []),
 	];
 
 	return (
@@ -21,7 +23,7 @@ export default function Header() {
 				</div>
 
 				{/* Center navigation */}
-				<div className='flex justify-center flex-1'>
+				<div className='flex whitespace-nowrap justify-center flex-1'>
 					{navigation.map((item) => (
 						<Link key={item.name} to={item.href} className='hover:text-amber-300 text-2xl font-bold mx-5'>
 							{item.name}

@@ -1,6 +1,9 @@
 import { SU_USERS } from '../config';
+// TODO fix url
+// TODO add abort controller
+// TODO add loading state
 
-export default async function userApi(values, url, method) {
+export default async function useRequest(values, url, method) {
 	const { username, email, password } = values;
 	const options = {
 		method: method,

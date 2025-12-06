@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { SU_MOVIES } from '../config';
 
+const OMDB_API_KEY = 'e4aa255b';
+
 export default function Search() {
 	// const [movies, setMovies] = useState([]);
 
@@ -18,24 +20,11 @@ export default function Search() {
 	const changeHandler = (e) => {
 		setQuery(e.target.value);
 	};
+
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
-		const urlParams = new URLSearchParams({ where: `title="${query}"` });
-
-		const response = await fetch(`${SU_MOVIES}?${urlParams.toString()}`, {
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
-
-		// const response = await fetch(`${SU_MOVIES}?${urlParams.toString()}`, {
-		// 	method: 'GET',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 	},
-		// });
+		const response = await fetch(`https://omdbapi.com/?apikey=${OMDB_API_KEY}&t=${query}`);
 
 		const result = await response.json();
 
@@ -75,3 +64,20 @@ export default function Search() {
 		</div>
 	);
 }
+
+// const submitHandler = async (e) => {
+// 	e.preventDefault();
+
+// 	const urlParams = new URLSearchParams({ where: `title="${query}"` });
+
+// 	const response = await fetch(`${SU_MOVIES}?${urlParams.toString()}`, {
+// 		method: 'GET',
+// 		headers: {
+// 			'Content-Type': 'application/json',
+// 		},
+// 	});
+
+// 	const result = await response.json();
+
+// 	console.log(result);
+// };

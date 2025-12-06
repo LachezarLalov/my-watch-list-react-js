@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 import useControlledForm from '../../hooks/useControlledFrom';
-import userApi from '../../utils/userApi';
+import useRequest from '../../hooks/useRequest';
 
 export default function UserRegister() {
 	const url = '/register';
@@ -15,7 +15,7 @@ export default function UserRegister() {
 
 	const { values, changeHandler, submitHandler, errorHandler, error } = useControlledForm(
 		initialValues,
-		userApi,
+		useRequest,
 		url,
 		method
 	);

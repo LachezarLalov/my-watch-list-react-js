@@ -79,7 +79,7 @@
 			const method = req.method;
 			console.info(`<< ${req.method} ${req.url}`);
 
-			// Redirect fix for admin panel relative paths
+			// Redirect fix for admin panel
 			if (req.url.slice(-6) == '/admin') {
 				res.writeHead(302, {
 					'Location': `http://${req.headers.host}/admin/`,
@@ -89,44 +89,52 @@
 
 			let status = 200;
 			let headers = {
-				'Access-Control-Allow-Origin': '*',
 				'Content-Type': 'application/json',
 			};
+
+			// === CORS: Always return these headers ===
+			headers['Access-Control-Allow-Origin'] = '*';
+			headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS';
+			headers['Access-Control-Allow-Headers'] = '*';
+
+			// === Handle preflight OPTIONS request ===
+			if (method === 'OPTIONS') {
+				res.writeHead(204, headers);
+				return res.end();
+			}
+
 			let result = '';
 			let context;
 
-			// NOTE: the OPTIONS method results in undefined result and also it never processes plugins - keep this in mind
-			if (method == 'OPTIONS') {
-				Object.assign(headers, {
-					'Access-Control-Allow-Methods': 'GET, POST, PUT, PATCH, DELETE, OPTIONS',
-					'Access-Control-Allow-Credentials': false,
-					'Access-Control-Max-Age': '86400',
-					'Access-Control-Allow-Headers':
-						'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept, X-Authorization, X-Admin',
-				});
-			} else {
-				try {
-					context = processPlugins();
-					await handle(context);
-				} catch (err) {
-					if (err instanceof ServiceError$1) {
-						status = err.status || 400;
-						result = composeErrorObject(err.code || status, err.message);
-					} else {
-						// Unhandled exception, this is due to an error in the service code - REST consumers should never have to encounter this;
-						// If it happens, it must be debugged in a future version of the server
-						console.error(err);
-						status = 500;
-						result = composeErrorObject(500, 'Server Error');
-					}
+			try {
+				context = processPlugins();
+				await handle(context);
+			} catch (err) {
+				if (err instanceof ServiceError) {
+					status = err.status || 400;
+					result = composeErrorObject(err.code || status, err.message);
+				} else {
+					console.error(err);
+					status = 500;
+					result = composeErrorObject(500, 'Server Error');
 				}
 			}
 
+			// Reapply CORS to normal responses (important!)
+			headers['Access-Control-Allow-Origin'] = '*';
+			headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS';
+			headers['Access-Control-Allow-Headers'] = '*';
+
+			// Send response
 			res.writeHead(status, headers);
+
 			if (context != undefined && context.util != undefined && context.util.throttle) {
 				await new Promise((r) => setTimeout(r, 500 + Math.random() * 500));
 			}
+
 			res.end(result);
+
+			// ===== Helpers =====
 
 			function processPlugins() {
 				const context = { params: {} };
@@ -136,10 +144,19 @@
 
 			async function handle(context) {
 				const { serviceName, tokens, query, body } = await parseRequest(req);
+
 				if (serviceName == 'admin') {
-					return ({ headers, result } = services['admin'](method, tokens, query, body));
-				} else if (serviceName == 'favicon.ico') {
-					return ({ headers, result } = services['favicon'](method, tokens, query, body));
+					const response = services['admin'](method, tokens, query, body);
+					Object.assign(headers, response.headers);
+					result = response.result;
+					return;
+				}
+
+				if (serviceName == 'favicon.ico') {
+					const response = services['favicon'](method, tokens, query, body);
+					Object.assign(headers, response.headers);
+					result = response.result;
+					return;
 				}
 
 				const service = services[serviceName];
@@ -152,8 +169,6 @@
 					result = await service(context, { method, tokens, query, body });
 				}
 
-				// NOTE: logout does not return a result
-				// in this case the content type header should be omitted, to allow checks on the client
 				if (result !== undefined) {
 					result = JSON.stringify(result);
 				} else {
@@ -873,6 +888,15 @@
 		favicon,
 		admin,
 		util: util$1,
+		omdb: async (context, req) => {
+			const { query } = req;
+
+			// The "q" parameter comes from React: /omdb?q=batman
+			const url = `https://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${query.q}`;
+
+			const omdbRes = await fetch(url);
+			return await omdbRes.json();
+		},
 	};
 
 	const { uuid: uuid$2 } = util;
