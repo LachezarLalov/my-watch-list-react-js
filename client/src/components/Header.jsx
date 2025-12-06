@@ -3,12 +3,13 @@ import { useUserContext } from '../contexts/UserContext';
 
 export default function Header() {
 	const { user } = useUserContext();
+	const isAuth = user && user.isAuthenticated;
 
 	const navigation = [
 		{ name: 'Home', href: '/' },
 		{ name: 'Movies', href: '/catalog' },
 		{ name: 'Directors', href: '/directors' },
-		{ name: 'Search', href: '/search' },
+		...(isAuth ? [{ name: 'Search', href: '/search' }] : []),
 	];
 
 	return (

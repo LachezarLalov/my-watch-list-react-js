@@ -11,7 +11,7 @@ export default function MovieCard({ title, imageUrl, director, year }) {
 			<img src={imageUrl} className='w-300 h-80 object-cover size-300' />
 			<h2 className='m-1 mt-2 font-bold'>{director}</h2>
 			<h2 className='m-1 text-[14px]'>{year}</h2>
-			<div class='space-x-1'>
+			<div className='space-x-1'>
 				<MovieRating />
 				<MovieLike />
 			</div>

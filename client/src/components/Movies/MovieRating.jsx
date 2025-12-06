@@ -10,43 +10,43 @@ export default function MovieRating() {
 	// TODO record rating
 
 	return (
-		<dev className='select-none flex items-center justify-center gap-1'>
+		<div className='select-none flex items-center justify-center gap-1'>
 			<span
 				onClick={handleClick}
 				data-star={1}
-				class={`text-xl ${stars > 0 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
+				className={`text-xl ${stars > 0 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
 			>
 				★
 			</span>
 			<span
 				onClick={handleClick}
 				data-star={2}
-				class={`text-xl ${stars > 1 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
+				className={`text-xl ${stars > 1 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
 			>
 				★
 			</span>
 			<span
 				onClick={handleClick}
 				data-star={3}
-				class={`text-xl ${stars > 2 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
+				className={`text-xl ${stars > 2 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
 			>
 				★
 			</span>
 			<span
 				onClick={handleClick}
 				data-star={4}
-				class={`text-xl ${stars > 3 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
+				className={`text-xl ${stars > 3 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
 			>
 				★
 			</span>
 			<span
 				onClick={handleClick}
 				data-star={5}
-				class={`text-xl ${stars > 4 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
+				className={`text-xl ${stars > 4 ? 'text-yellow-400' : 'text-gray-400'} hover:cursor-pointer`}
 			>
 				★
 			</span>
-		</dev>
+		</div>
 	);
 }
 

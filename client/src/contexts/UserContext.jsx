@@ -7,6 +7,7 @@ export const UserContext = createContext({
 		email: '',
 		accessToken: '',
 		id: '',
+		isAuthenticated: false,
 	},
 
 	loginHandler() {},
@@ -22,6 +23,7 @@ export function UserProvider({ children }) {
 			email,
 			accessToken,
 			id,
+			isAuthenticated: true,
 		});
 	};
 

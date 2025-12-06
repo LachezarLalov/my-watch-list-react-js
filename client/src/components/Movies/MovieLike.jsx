@@ -12,7 +12,7 @@ export default function MovieLike() {
 	return (
 		<div>
 			<button onClick={handleClick}>
-				{liked ? <span class='text-red-500 text-2xl'>❤</span> : <span class='text-red-500 text-2xl'>♡</span>}
+				{liked ? <span className='text-red-500 text-2xl'>❤</span> : <span className='text-red-500 text-2xl'>♡</span>}
 			</button>
 		</div>
 	);

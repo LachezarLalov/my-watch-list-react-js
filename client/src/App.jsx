@@ -10,27 +10,9 @@ import UserRegister from './components/User/UserRegister';
 import UserLogout from './components/User/UserLogout';
 import { UserProvider } from './contexts/UserContext';
 import Search from './components/Search';
+import RouteGuard from './components/RouteGuard';
 
 function App() {
-
-	
-	// const [user, setUser] = useState({});
-
-	// const loginHandler = (user) => {
-	// 	setUser(user);
-	// };
-
-	// const logoutHandler = () => {
-	// 	setUser({});
-	// };
-
-	// const contextValue = {
-	// 	user,
-	// 	isAutheticated: !!user.email,
-	// 	onLogin: loginHandler,
-	// 	onLogout: logoutHandler,
-	// };
-
 	return (
 		<UserProvider>
 			<div className='text-white w-full min-h-screen bg-cover bg-no-repeat bg-[url("/background.jpg")] flex flex-col '>
@@ -43,10 +25,13 @@ function App() {
 						<Route index element={<Home />} />
 						<Route path='/catalog' element={<MovieCatalog />} />
 						<Route path='/directors' element={<Directors />} />
-						<Route path='/search' element={<Search />} />
 						<Route path='/login' element={<UserLogin />} />
-						<Route path='/register' element={<UserRegister />} />
-						<Route path='/logout' element={<UserLogout />} />
+
+						<Route element={<RouteGuard />}>
+							<Route path='/search' element={<Search />} />
+							<Route path='/register' element={<UserRegister />} />
+							<Route path='/logout' element={<UserLogout />} />
+						</Route>
 					</Routes>
 				</div>
 
