@@ -888,6 +888,9 @@
 		favicon,
 		admin,
 		util: util$1,
+
+		// Chat GPT code...
+		// NEW: OMDb proxy service
 		omdb: async (context, req) => {
 			const { query } = req;
 
@@ -897,6 +900,7 @@
 			const omdbRes = await fetch(url);
 			return await omdbRes.json();
 		},
+		// Chat GPT code...
 	};
 
 	const { uuid: uuid$2 } = util;
@@ -1501,7 +1505,7 @@
 				'genre': 'Crime',
 				'year': 1972,
 				'cast': ['Marlon Brando', 'Al Pacino', 'Robert De Niro', 'Robert Duvall'],
-				'imageUrl':
+				'poster':
 					'https://media.newyorker.com/photos/594044d90c240c2a1fd678ce/master/w_2240,c_limit/970324_ra409.jpg',
 			},
 
@@ -1511,7 +1515,7 @@
 				'genre': 'Sci-Fi',
 				'year': 2010,
 				'cast': ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page', 'Tom Hardy'],
-				'imageUrl': 'https://m.media-amazon.com/images/I/51a7hc58lDL._SY300_SX300_QL70_ML2_.jpg',
+				'poster': 'https://m.media-amazon.com/images/I/51a7hc58lDL._SY300_SX300_QL70_ML2_.jpg',
 			},
 
 			'f2b1ec0e-d2b2-43d8-92fb-fdb76dcde7e4': {
@@ -1520,7 +1524,7 @@
 				'genre': 'Crime',
 				'year': 1994,
 				'cast': ['John Travolta', 'Samuel L. Jackson', 'Uma Thurman', 'Bruce Willis'],
-				'imageUrl': 'https://m.media-amazon.com/images/I/71c05lTE03L._AC_UF894,1000_QL80_.jpg',
+				'poster': 'https://m.media-amazon.com/images/I/71c05lTE03L._AC_UF894,1000_QL80_.jpg',
 			},
 
 			'6e3b8b3d-23ad-45c8-bc33-f671dcb3f5ea': {
@@ -1529,7 +1533,7 @@
 				'genre': 'Action',
 				'year': 2008,
 				'cast': ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart', 'Maggie Gyllenhaal'],
-				'imageUrl': 'https://upload.wikimedia.org/wikipedia/en/1/1c/The_Dark_Knight_%282008_film%29.jpg',
+				'poster': 'https://upload.wikimedia.org/wikipedia/en/1/1c/The_Dark_Knight_%282008_film%29.jpg',
 			},
 
 			'2c4c3de3-7458-4d06-b175-d25d723ab923': {
@@ -1538,7 +1542,7 @@
 				'genre': 'Sci-Fi',
 				'year': 2014,
 				'cast': ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Michael Caine'],
-				'imageUrl': 'https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_UF894,1000_QL80_.jpg',
+				'poster': 'https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_UF894,1000_QL80_.jpg',
 			},
 		},
 	};
@@ -1565,7 +1569,7 @@
 	var settings = {
 		identity: identity,
 		protectedData: protectedData,
-		seedData: seedData,
+		seedData: {}, // seedData,
 		rules: rules$1,
 	};
 

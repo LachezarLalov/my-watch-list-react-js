@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function MovieRating() {
+export default function MovieRating({ rating }) {
 	const [stars, setStars] = useState(1);
 
 	const handleClick = (e) => {
@@ -11,6 +11,7 @@ export default function MovieRating() {
 
 	return (
 		<div className='select-none flex items-center justify-center gap-1'>
+			{rating && <p className='text-center text-sm'>{rating}</p>}
 			<span
 				onClick={handleClick}
 				data-star={1}

@@ -1364,7 +1364,7 @@
 				'genre': 'Crime',
 				'year': 1972,
 				'cast': ['Marlon Brando', 'Al Pacino', 'Robert De Niro', 'Robert Duvall'],
-				'imageUrl':
+				'poster':
 					'https://media.newyorker.com/photos/594044d90c240c2a1fd678ce/master/w_2240,c_limit/970324_ra409.jpg',
 			},
 
@@ -1374,7 +1374,7 @@
 				'genre': 'Sci-Fi',
 				'year': 2010,
 				'cast': ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page', 'Tom Hardy'],
-				'imageUrl': 'https://m.media-amazon.com/images/I/51a7hc58lDL._SY300_SX300_QL70_ML2_.jpg',
+				'poster': 'https://m.media-amazon.com/images/I/51a7hc58lDL._SY300_SX300_QL70_ML2_.jpg',
 			},
 
 			'f2b1ec0e-d2b2-43d8-92fb-fdb76dcde7e4': {

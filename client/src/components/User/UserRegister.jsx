@@ -1,9 +1,11 @@
 import { Link } from 'react-router';
 import useControlledForm from '../../hooks/useControlledFrom';
 import useRequest from '../../hooks/useRequest';
+import { SU_USERS } from '../../config';
 
 export default function UserRegister() {
-	const url = '/register';
+	const baseUrl = SU_USERS;
+	const url = 'register';
 	const method = 'POST';
 
 	const initialValues = {
@@ -17,6 +19,7 @@ export default function UserRegister() {
 		initialValues,
 		useRequest,
 		url,
+		baseUrl,
 		method
 	);
 

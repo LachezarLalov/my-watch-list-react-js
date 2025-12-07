@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useUserContext } from '../contexts/UserContext';
 
-export default function useControlledForm(initialValues, onSubmit, url, method) {
+export default function useControlledForm(initialValues, onSubmit, url, baseUrl, method, auth, setPreviewValues) {
 	const { loginHandler } = useUserContext();
 	const [values, setValues] = useState(initialValues);
 	const [error, setError] = useState('');
@@ -18,8 +18,17 @@ export default function useControlledForm(initialValues, onSubmit, url, method) 
 			...state,
 			[e.target.name]: e.target.value,
 		}));
-	};
 
+		if (setPreviewValues) {
+			setPreviewValues((state) => {
+				const updatedValues = {
+					...state,
+					[e.target.name]: e.target.value,
+				};
+				setPreviewValues(updatedValues);
+			});
+		}
+	};
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
@@ -28,7 +37,7 @@ export default function useControlledForm(initialValues, onSubmit, url, method) 
 			return;
 		}
 
-		const result = await onSubmit(values, url, method);
+		const result = await onSubmit(values, url, baseUrl, method, auth);
 		console.log(result);
 
 		if (result.code === 403) {

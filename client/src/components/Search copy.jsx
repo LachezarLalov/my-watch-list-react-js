@@ -3,8 +3,20 @@ import { SU_MOVIES } from '../config';
 
 const OMDB_API_KEY = 'e4aa255b';
 
-export default function Search({ setSearchValues, searchValues }) {
+export default function Search() {
 	const [query, setQuery] = useState('');
+	const [searchValues, setSearchValues] = useState({
+		title: '',
+		year: '',
+		director: '',
+		poster: '',
+	});
+
+	const loadHandler = (e) => {
+		e.preventDefault();
+		console.log('loading');
+		console.log(searchValues);
+	};
 
 	const changeHandler = (e) => {
 		setQuery(e.target.value);
@@ -13,7 +25,6 @@ export default function Search({ setSearchValues, searchValues }) {
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
-		//TODO use useRequest for local server
 		const urlParams = new URLSearchParams({ where: `title="${query}"` });
 
 		const localServerResponse = await fetch(`${SU_MOVIES}?${urlParams.toString()}`, {
@@ -31,7 +42,7 @@ export default function Search({ setSearchValues, searchValues }) {
 				title: localResult[0].title,
 				year: localResult[0].year,
 				director: localResult[0].director,
-				poster: localResult[0].imageUrl,
+				poster: localResult[0].poster,
 			});
 			return localResult;
 		}
@@ -46,14 +57,8 @@ export default function Search({ setSearchValues, searchValues }) {
 			title: omdbResult.Title,
 			year: omdbResult.Year,
 			director: omdbResult.Director,
-			awards: omdbResult.Awards,
-			country: omdbResult.Country,
-			actors: omdbResult.Actors,
 			poster: omdbResult.Poster,
 			rating: omdbResult.Ratings[0].Value,
-			genre: omdbResult.Genre,
-			plot: omdbResult.Plot,
-			boxOffice: omdbResult.BoxOffice,
 		});
 
 		console.log(searchValues);
@@ -103,6 +108,15 @@ export default function Search({ setSearchValues, searchValues }) {
 						)}
 					</div>
 				</form>
+				{searchValues.title && (
+					<button
+						onClick={loadHandler}
+						type='submit'
+						className='flex w-full justify-center rounded-md bg-yellow-600/90 mt-5 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-500/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 min-h-8'
+					>
+						Load
+					</button>
+				)}
 			</div>
 			<div></div>
 		</div>

@@ -1,8 +1,10 @@
 import { Link } from 'react-router';
 import useRequest from '../../hooks/useRequest';
 import useControlledForm from '../../hooks/useControlledFrom';
+import { SU_USERS } from '../../config';
 
 export default function UserLogin() {
+	const baseUrl = SU_USERS;
 	const url = '/login';
 	const method = 'POST';
 
@@ -15,6 +17,7 @@ export default function UserLogin() {
 		initialValues,
 		useRequest,
 		url,
+		baseUrl,
 		method
 	);
 

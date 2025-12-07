@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SU_DATA, SU_MOVIES } from '../../config.js';
+import { SU_MOVIES } from '../../config.js';
 
 import MovieCard from './MovieCard.jsx';
 import { Link } from 'react-router';
@@ -20,9 +20,9 @@ export default function MoviesToWatch() {
 			<div className='inline-flex gap-1 m-10'>
 				{movies.map((movie) => (
 					<MovieCard
-						key={movie.title}
+						key={movie.id}
 						title={movie.title}
-						imageUrl={movie.imageUrl}
+						poster={movie.poster}
 						director={movie.director}
 						year={movie.year}
 					/>
