@@ -3,7 +3,8 @@
 // TODO add loading state
 
 export default async function useRequest(values, url, baseUrl, method, auth) {
-	const { username, email, password } = values;
+	const { username, email, password } = { values };
+
 	const options = {
 		method: method,
 		headers: {
@@ -30,8 +31,12 @@ export default async function useRequest(values, url, baseUrl, method, auth) {
 	// TODO fix per request type
 	if (!response.ok || response.status === 204) {
 		const error = await response.json();
-		// alert(error.message);
+		alert(error.message);
 		return error;
+	}
+
+	if (method === 'DELETE') {
+		return 
 	}
 
 	const result = await response.json();

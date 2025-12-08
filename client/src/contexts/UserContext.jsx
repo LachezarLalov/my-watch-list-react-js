@@ -9,7 +9,6 @@ export const UserContext = createContext({
 		id: '',
 		isAuthenticated: false,
 	},
-
 	loginHandler() {},
 	logoutHandler() {},
 });

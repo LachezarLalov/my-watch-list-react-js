@@ -2,7 +2,17 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useUserContext } from '../contexts/UserContext';
 
-export default function useControlledForm(initialValues, onSubmit, url, baseUrl, method, auth, setPreviewValues) {
+export default function useControlledForm(
+	initialValues,
+	onSubmit,
+	url,
+	baseUrl,
+	method,
+	auth,
+	setPreviewValues,
+	redirect,
+	
+) {
 	const { loginHandler } = useUserContext();
 	const [values, setValues] = useState(initialValues);
 	const [error, setError] = useState('');
@@ -29,6 +39,7 @@ export default function useControlledForm(initialValues, onSubmit, url, baseUrl,
 			});
 		}
 	};
+
 	const submitHandler = async (e) => {
 		e.preventDefault();
 
@@ -50,6 +61,11 @@ export default function useControlledForm(initialValues, onSubmit, url, baseUrl,
 			const { username, email, accessToken, _id } = result;
 			loginHandler(username, email, accessToken, _id);
 			navigate('/');
+		}
+
+		if (redirect) {
+			// TODO use Base URL
+			navigate(`/movies/${result._id}`);
 		}
 		setValues(initialValues);
 	};

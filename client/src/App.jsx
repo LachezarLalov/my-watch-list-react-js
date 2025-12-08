@@ -12,6 +12,8 @@ import { UserProvider } from './contexts/UserContext';
 import Search from './components/Search';
 import RouteGuard from './components/RouteGuard';
 import AddMovie from './components/Movies/AddMovie';
+import MovieDetails from './components/Movies/MovieDetails';
+import EditMovie from './components/Movies/EditMovie';
 
 function App() {
 	return (
@@ -26,11 +28,13 @@ function App() {
 						<Route index element={<Home />} />
 						<Route path='/catalog' element={<MovieCatalog />} />
 						<Route path='/directors' element={<Directors />} />
+						<Route path='/movies/:id' element={<MovieDetails />} />
+						<Route path='/movies/:id/edit' element={<EditMovie />} />
 						<Route path='/login' element={<UserLogin />} />
 						<Route path='/register' element={<UserRegister />} />
 
 						<Route path='/logout' element={<UserLogout />} />
-						
+
 						<Route element={<RouteGuard />}>
 							<Route path='/search' element={<Search />} />
 							<Route path='/movies/create' element={<AddMovie />} />

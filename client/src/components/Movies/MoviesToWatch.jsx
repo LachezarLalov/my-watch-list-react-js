@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { SU_MOVIES } from '../../config.js';
 
 import MovieCard from './MovieCard.jsx';
@@ -14,17 +14,26 @@ export default function MoviesToWatch() {
 			.catch((err) => alert(err.message));
 	}, []);
 
+	if (movies.length === 0) {
+		return <h1 className='text-2xl font-extrabold tracking-wide m-5  '>Sorry, no movies to watch at the moment</h1>;
+	}
+
+	//TODO newst movies and random movies
+	const fiveMovies = movies.slice(0, 5);
+
 	return (
 		<div className='text-center'>
 			<h1 className='text-5xl font-extrabold tracking-wide m-5  '>MOVIES TO WATCH</h1>
 			<div className='inline-flex gap-1 m-10'>
-				{movies.map((movie) => (
+				{fiveMovies.map((movie) => (
 					<MovieCard
-						key={movie.id}
+						key={movie._id}
+						id={movie._id}
 						title={movie.title}
 						poster={movie.poster}
 						director={movie.director}
 						year={movie.year}
+						rating={movie.rating}
 					/>
 				))}
 			</div>
