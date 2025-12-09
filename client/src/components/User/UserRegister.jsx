@@ -5,7 +5,7 @@ import { SU_USERS } from '../../config';
 
 export default function UserRegister() {
 	const baseUrl = SU_USERS;
-	const url = 'register';
+	const url = '/register';
 	const method = 'POST';
 
 	const initialValues = {

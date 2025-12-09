@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SU_MOVIES } from '../../config.js';
 
 import MovieCard from './MovieCard.jsx';

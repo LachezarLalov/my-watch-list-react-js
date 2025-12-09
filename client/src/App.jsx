@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router';
 
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Home from './components/Home';
 import Footer from './components/Footer';
 import MovieCatalog from './components/Movies/MovieCatalog';
@@ -11,9 +11,11 @@ import UserLogout from './components/User/UserLogout';
 import { UserProvider } from './contexts/UserContext';
 import Search from './components/Search';
 import RouteGuard from './components/RouteGuard';
-import AddMovie from './components/Movies/AddMovie';
 import MovieDetails from './components/Movies/MovieDetails';
 import EditMovie from './components/Movies/EditMovie';
+import UserProfile from './components/User/UserProfile';
+import CreateMovie from './components/Movies/CreateMovie';
+import TopTenLists from './components/TopTens/TopTenLists';
 
 function App() {
 	return (
@@ -29,15 +31,16 @@ function App() {
 						<Route path='/catalog' element={<MovieCatalog />} />
 						<Route path='/directors' element={<Directors />} />
 						<Route path='/movies/:id' element={<MovieDetails />} />
-						<Route path='/movies/:id/edit' element={<EditMovie />} />
 						<Route path='/login' element={<UserLogin />} />
 						<Route path='/register' element={<UserRegister />} />
-
 						<Route path='/logout' element={<UserLogout />} />
+						<Route path='/toptens' element={<TopTenLists />} />
 
 						<Route element={<RouteGuard />}>
 							<Route path='/search' element={<Search />} />
-							<Route path='/movies/create' element={<AddMovie />} />
+							<Route path='/movies/create' element={<CreateMovie />} />
+							<Route path='/movies/:id/edit' element={<EditMovie />} />
+							<Route path='/profile' element={<UserProfile />} />
 						</Route>
 					</Routes>
 				</div>

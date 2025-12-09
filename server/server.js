@@ -496,10 +496,34 @@
 
 	const userService = new Service_1();
 
+	// GPT code...
 	userService.get('me', getSelf);
 	userService.post('register', onRegister);
 	userService.post('login', onLogin);
 	userService.get('logout', onLogout);
+
+	userService.patch('me', (context, tokens, query, body) => {
+		if (!context.user) {
+			throw new AuthorizationError('Unauthorized');
+		}
+
+		// ✅ пазим само позволените полета
+		const safe = {};
+
+		if (Array.isArray(body.topMovies)) {
+			safe.topMovies = body.topMovies;
+		}
+
+		if (Array.isArray(body.watchList)) {
+			safe.watchList = body.watchList;
+		}
+
+		const updated = context.protectedStorage.merge('users', context.user._id, safe);
+
+		delete updated.hashedPassword;
+		return updated;
+	});
+	//GPT code..
 
 	function getSelf(context, tokens, query, body) {
 		if (context.user) {
@@ -1470,7 +1494,7 @@
 				email: 'og@abv.bg',
 				username: 'OgiG',
 				hashedPassword: '83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1',
-				topMovies: '',
+				topMovies: ['33e0e27c-3660-4b10-a66b-f42b5fea16d3', 'd7d8ce2e-f75d-4ad6-b68c-5629f6e17e9c'],
 				watchList: '',
 			},
 			'35c62d76-8152-4626-8712-eeb96381be22': {
@@ -1550,7 +1574,7 @@
 		users: {
 			'.create': false,
 			'.read': ['Owner'],
-			'.update': false,
+			'.update': ['Owner'],
 			'.delete': false,
 		},
 		members: {

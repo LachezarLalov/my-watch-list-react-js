@@ -1,15 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import useControlledForm from '../../hooks/useControlledFrom';
 import useRequest from '../../hooks/useRequest';
+import Search from '../Search';
 import AddMoviePreview from './AddMoviePreview';
 import { SU_MOVIES } from '../../config';
 import { useUserContext } from '../../contexts/UserContext';
-import { useParams } from 'react-router';
 
-export default function EditMovie() {
-	const [setIsLoaded] = useState(false);
+export default function CreateMovie() {
 	const [previewValues, setPreviewValues] = useState({});
-	const [movieValues, setMovieValues] = useState({
+	const [searchValues, setSearchValues] = useState({
 		title: '',
 		year: '',
 		director: '',
@@ -23,19 +22,6 @@ export default function EditMovie() {
 		boxOffice: '',
 	});
 
-	const id = useParams().id;
-	useEffect(() => {
-		fetch(`${SU_MOVIES}/${id}`)
-			.then((res) => res.json())
-			.then((movie) => setMovieValues(movie))
-			.then(() => setIsLoaded[true])
-			.catch((err) => alert(err.message));
-	}, [id]);
-
-	useEffect(() => {
-		setPreviewValues(movieValues);
-	}, [movieValues]);
-
 	const baseUrl = SU_MOVIES;
 	const url = '';
 	const method = 'POST';
@@ -43,7 +29,19 @@ export default function EditMovie() {
 	const auth = user.accessToken;
 	const redirect = true;
 
-	const initialValues = movieValues;
+	const initialValues = {
+		title: '',
+		year: '',
+		director: '',
+		awards: '',
+		country: '',
+		actors: '',
+		poster: '',
+		rating: '',
+		genre: '',
+		plot: '',
+		boxOffice: '',
+	};
 
 	const { values, changeHandler, submitHandler } = useControlledForm(
 		initialValues,
@@ -56,19 +54,63 @@ export default function EditMovie() {
 		redirect
 	);
 
+	const loadHandler = async (e) => {
+		e.preventDefault();
+		setPreviewValues(searchValues);
+
+		values.title = searchValues.title;
+		values.year = searchValues.year;
+		values.director = searchValues.director;
+		values.awards = searchValues.awards;
+		values.country = searchValues.country;
+		values.actors = searchValues.actors;
+		values.poster = searchValues.poster;
+		values.rating = searchValues.rating;
+		values.genre = searchValues.genre;
+		values.plot = searchValues.plot;
+		values.boxOffice = searchValues.boxOffice;
+	};
+
+	let isLocal = false;
+	if (searchValues.id) {
+		isLocal = true;
+	}
+	console.log(isLocal);
+
 	return (
 		<div className='flex  w-full flex-col items-center px-6 py-12 lg:px-8 z-50'>
 			<div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-				<h2 className='text-center text-2xl font-bold tracking-tight'>Edit movie</h2>
+				<h2 className='text-center text-2xl font-bold tracking-tight'>Add movie</h2>
 			</div>
 
 			<div
 				className='mt-12 flex w-full flex-row gap-12
 			                xl:flex-row xl:items-start xl:justify-center'
 			>
-				{/* <div className='w-full max-w-sm'>
+				<div className='w-full max-w-sm'>
 					<Search setSearchValues={setSearchValues} searchValues={searchValues} />
-				</div> */}
+					{isLocal && (
+						<div className='flex flex-col justify-center text-center '>
+							<p className='text-red-500 mt-2 font-bold justify-center '>We have that movie!</p>
+					
+						<button
+							onClick={loadHandler}
+							type='button'
+							className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
+							>
+							Add to top 10
+						</button>
+
+												<button
+							onClick={loadHandler}
+							type='button'
+							className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
+							>
+							Add to watch list
+						</button>
+							</div>
+					)}
+				</div>
 
 				<div className='w-full max-w-sm'>
 					<form onSubmit={submitHandler} className='space-y-4'>
@@ -122,9 +164,7 @@ export default function EditMovie() {
 			           outline outline-1 outline-gray-300 focus:outline-indigo-600'
 							/>
 						</div>
-
 						<p className='text-gray-300 text-center text-sm/3 font-bold tracking-tight ml-15'>optional</p>
-
 						{/* awards */}
 						<div className='flex items-center'>
 							<label htmlFor='awards' className='block text-sm font-medium w-24'>
@@ -240,7 +280,7 @@ export default function EditMovie() {
 						{/* boxOffice */}
 						<div className='flex items-center'>
 							<label htmlFor='boxOffice' className='block text-sm font-medium w-24'>
-								BoxOffice
+								Box Office
 							</label>
 							<input
 								id='boxOffice'
@@ -253,11 +293,22 @@ export default function EditMovie() {
 							/>
 						</div>
 
+						{searchValues.title && (
+							<button
+								onClick={loadHandler}
+								type='button'
+								disabled={isLocal}
+								className={`mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white 
+									${isLocal ? 'bg-gray-400 cursor-not-allowed opacity-60' : 'bg-indigo-600 hover:bg-indigo-500'}`}
+							>
+								Load
+							</button>
+						)}
 						<button
 							type='submit'
-							className='mt-8 flex w-full justify-center rounded-md
-		           bg-indigo-600 px-3 py-2 text-sm font-semibold text-white
-		           hover:bg-indigo-500'
+							disabled={isLocal}
+							className={`mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white 
+					${isLocal ? 'bg-gray-400 cursor-not-allowed opacity-60' : 'bg-indigo-600 hover:bg-indigo-500'}`}
 						>
 							Add the movie
 						</button>

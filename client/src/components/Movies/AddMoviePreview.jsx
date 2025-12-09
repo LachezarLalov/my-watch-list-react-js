@@ -1,4 +1,3 @@
-import MovieLike from './MovieLike';
 import MovieRating from './MovieRating';
 
 export default function AddMoviePreview({ title, poster, director, year, rating }) {

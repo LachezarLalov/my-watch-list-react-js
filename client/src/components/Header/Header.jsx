@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
-import { useUserContext } from '../contexts/UserContext';
+import { useUserContext } from '../../contexts/UserContext';
+import UserGreet from './UserGreet';
 
 export default function Header() {
 	const { user } = useUserContext();
@@ -8,19 +9,17 @@ export default function Header() {
 	// TODO dynamicly hide current page
 	const navigation = [
 		{ name: 'Home', href: '/' },
+		{ name: "Top 10's", href: '/toptens' },
 		{ name: 'Movies', href: '/catalog' },
 		{ name: 'Directors', href: '/directors' },
-		...(isAuth ? [{ name: 'Search', href: '/search' }] : []),
+		// ...(isAuth ? [{ name: 'Search', href: '/search' }] : []),
 		...(isAuth ? [{ name: 'Add movie', href: '/movies/create' }] : []),
 	];
 
 	return (
 		<header className='z-100'>
 			<nav aria-label='Global' className='flex items-center justify-between p-6 lg:px-8'>
-				{/* Left spacer (makes middle truly centered) */}
-				<div className='flex flex-1 items-center'>
-					<p className='mr-10'>{user ? `Welcome back, ${user?.username}!` : 'Welcome, stranger!'}</p>
-				</div>
+				<UserGreet user={user} />
 
 				{/* Center navigation */}
 				<div className='flex whitespace-nowrap justify-center flex-1'>
