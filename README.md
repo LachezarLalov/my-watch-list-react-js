@@ -47,3 +47,32 @@ Logged-in users can:
 3. Open new terminal in **client** folder and install dependencies using `npm install`
 4. In the same terminal run the client using `&& npm run dev` in terminal
 5. Open `http://localhost:5173/` in browser
+
+### Server
+
+1. Hardcoded users:
+
+-  Email: `admin@abv.bg`
+-  Password: `admin`
+
+-  Email: `peter@abv.bg`
+-  Password: `123456`
+
+-  Email: `george@abv.bg`
+-  Password: `123456`
+
+-  Email: `og@abv.bg`
+-  Password: `123456`
+
+-  Email: `dimi@abv.bg`
+-  Password: `123456`
+
+-  Email: `kito@abv.bg`
+-  Password: `123456`
+
+-  Email: `mimi@abv.bg`
+-  Password: `123456`
+
+2. Persistent movies and watchlists using collections
+
+3. Directors catalog using jsonstore
