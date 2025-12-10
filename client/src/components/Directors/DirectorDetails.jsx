@@ -43,6 +43,16 @@ export default function MovieDetails() {
 					<h2 className='mt-5 max-w-[50ch] font-serif font-medium text-lg text-center mx-auto'>
 						Biography: <span className=''>{director.bio}</span>
 					</h2>
+					<div className='flex flex-row justify-center'>
+						<h2 className='m-2 text-[14px]'>
+							Born: <span className='font-bold'>{director.born}</span>
+						</h2>
+						{director.dateOfDeath && (
+							<h2 className='m-2 text-[14px]'>
+								Death: <span className='font-bold'>{director.dateOfDeath}</span>
+							</h2>
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

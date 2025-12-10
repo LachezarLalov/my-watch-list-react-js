@@ -5,7 +5,7 @@ import { useUserContext } from '../../contexts/UserContext';
 import useTopTenCollection from '../../hooks/useTopTenCollection';
 import useTopTenCheck from '../../hooks/useTopTenCheck';
 import useWatchlistCollections from '../../hooks/useWatchlistCollections';
-import useWatchlistCheck from '../../hooks/useWatchlistCheckjs';
+import useWatchlistCheck from '../../hooks/useWatchlistCheck.js';
 
 export default function MovieCard({ title, poster, director, year, rating, id, movies }) {
 	const { addToTopTens } = useTopTenCollection();
@@ -31,19 +31,19 @@ export default function MovieCard({ title, poster, director, year, rating, id, m
 			className='min-w-60 max-w-70 max-h-200 transition-all duration-300 ease-in-out hover:border-amber-400 hover:bg-amber-200/20 hover:shadow-amber-300/70  bg-black/70 m-3 text-center rounded-xl  shadow-amber-300/50 shadow-2xl border-amber-200/80 border-2 border-solid '
 		>
 			<h1 className='text-[clamp(1.2rem,1.2vw,1.6rem)] font-bold m-4'>{title}</h1>
-			<img src={poster} onClick={clickHandler} className='hover:cursor-pointer w-300 h-90 object-cover size-300' />
+			<img src={poster} onClick={clickHandler} className='hover:cursor-pointer w-300 h-80 object-cover size-300' />
 			<h2 className='m-1 mt-2 font-bold'>{director}</h2>
 			<h2 className='m-1 text-[14px]'>{year}</h2>
 			<h2 className='m-1 text-[14px]'>{movies}</h2>
-			<div className='space-x-1'>
+			<div className='space-x-1 mb-3'>
 				<MovieRating rating={rating} />
-				<MovieLike />
+				{/* <MovieLike /> */}
 				{user && (
 					<div className='flex flex-col'>
 						{!isInUserList.isInUserList && (
 							<button
 								onClick={addToTopTensHandler}
-								className='text-amber-400 hover:text-amber-500 mb-5 hover:cursor-pointer'
+								className=' hover:bg-cyan-700/70 m-2 hover:cursor-pointer bg-cyan-800/80 w-40 text-center mx-auto rounded-md shadow-2xl'
 							>
 								Add to Top10's
 							</button>
@@ -51,7 +51,7 @@ export default function MovieCard({ title, poster, director, year, rating, id, m
 						{!isInMyWatchlist.isInWatchlist && (
 							<button
 								onClick={addToWatchlistHandler}
-								className='text-amber-400 hover:text-amber-500 mb-1 hover:cursor-pointer'
+								className=' hover:bg-cyan-700/70 m-2 hover:cursor-pointer bg-cyan-800/80 w-40 text-center mx-auto rounded-md shadow-2xl'
 							>
 								Add to watchlist
 							</button>

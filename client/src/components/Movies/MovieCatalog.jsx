@@ -47,7 +47,7 @@ export default function MovieCatalog() {
 					Top Rated
 				</button>
 			</div>
-			<div className='flex flex-wrap  mt-15 gap-0'>
+			<div className='flex flex-wrap  mt-15 gap-3'>
 				{movies.map((movie) => (
 					<MovieCard
 						key={movie._id}

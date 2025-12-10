@@ -89,7 +89,7 @@ export default function Search() {
 
 				<div className='flex flex-col'>
 					<button
-						type='submit'
+						type='onClick'
 						onClick={searchHandler}
 						className='flex justify-center rounded-md bg-yellow-600/90 mt-5 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-500/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500'
 					>

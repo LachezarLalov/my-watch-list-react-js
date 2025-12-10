@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router';
 import { useUserContext } from '../../contexts/UserContext';
 import useTopTenCollection from '../../hooks/useTopTenCollection';
 import useTopTenCheck from '../../hooks/useTopTenCheck';
-import useWatchlistCheck from '../../hooks/useWatchlistCheckjs';
+import useWatchlistCheck from '../../hooks/useWatchlistCheck.js';
 import useWatchlistCollections from '../../hooks/useWatchlistCollections';
 
 export default function MovieDetails() {

@@ -5,8 +5,13 @@ import Search from '../Search/SideSearch';
 import AddMoviePreview from './AddMoviePreview';
 import { SU_MOVIES } from '../../config';
 import { useUserContext } from '../../contexts/UserContext';
+import useTopTenCollection from '../../hooks/useTopTenCollection';
+import useWatchlistCollections from '../../hooks/useWatchlistCollections';
+import SideSearch from '../Search/SideSearch';
 
 export default function CreateMovie() {
+	const { addToTopTens } = useTopTenCollection();
+	const { addToMyWatchlist } = useWatchlistCollections();
 	const [previewValues, setPreviewValues] = useState({});
 	const [searchValues, setSearchValues] = useState({
 		title: '',
@@ -20,6 +25,7 @@ export default function CreateMovie() {
 		genre: '',
 		plot: '',
 		boxOffice: '',
+		id: '',
 	});
 
 	const baseUrl = SU_MOVIES;
@@ -75,7 +81,22 @@ export default function CreateMovie() {
 	if (searchValues.id) {
 		isLocal = true;
 	}
+
 	console.log(isLocal);
+
+	const addToTopTensHandler = () => {
+		const add = async () => {
+			await addToTopTens(searchValues.id);
+		};
+		add();
+	};
+
+	const addToWatchlistHandler = () => {
+		const add = async () => {
+			await addToMyWatchlist(searchValues.id);
+		};
+		add();
+	};
 
 	return (
 		<div className='flex  w-full flex-col items-center px-6 py-12 lg:px-8 z-50'>
@@ -88,13 +109,13 @@ export default function CreateMovie() {
 			                xl:flex-row xl:items-start xl:justify-center'
 			>
 				<div className='w-full max-w-sm'>
-					<Search setSearchValues={setSearchValues} searchValues={searchValues} />
+					<SideSearch setSearchValues={setSearchValues} searchValues={searchValues} />
 					{isLocal && (
 						<div className='flex flex-col justify-center text-center '>
 							<p className='text-red-500 mt-2 font-bold justify-center '>We have that movie!</p>
 
 							<button
-								onClick={loadHandler}
+								onClick={addToTopTensHandler}
 								type='button'
 								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
 							>
@@ -102,7 +123,7 @@ export default function CreateMovie() {
 							</button>
 
 							<button
-								onClick={loadHandler}
+								onClick={addToWatchlistHandler}
 								type='button'
 								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
 							>

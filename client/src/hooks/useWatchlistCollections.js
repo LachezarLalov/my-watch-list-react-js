@@ -5,6 +5,7 @@ export default function useWatchlistCollections() {
 	const currentUser = useUserContext().user;
 
 	const addToMyWatchlist = async (movieId) => {
+
 		const result = await fetch(`${SU_WATCHLISTS}`, {
 			method: 'POST',
 			headers: {
@@ -24,6 +25,7 @@ export default function useWatchlistCollections() {
 	};
 
 	const getMyWatchlist = async () => {
+				
 		const urlParams = new URLSearchParams({
 			where: `_ownerId="${currentUser.id}"`,
 			load: `movie=movieId:movies,owner=_ownerId:users`,
@@ -37,6 +39,8 @@ export default function useWatchlistCollections() {
 		})
 			.then((result) => result.json())
 			.catch((err) => alert(err.message));
+console.log(result)
+
 
 		return result;
 	};

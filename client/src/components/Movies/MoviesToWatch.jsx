@@ -8,11 +8,22 @@ export default function MoviesToWatch() {
 	const [movies, setMovies] = useState([]);
 
 	useEffect(() => {
-		fetch(`${SU_MOVIES}`)
+		fetch(SU_MOVIES)
 			.then((res) => res.json())
-			.then((movies) => setMovies(Object.values(movies)))
-			.catch((err) => alert(err.message));
+			.then((data) => {
+				const movies = Object.values(data);
+
+				const shuffled = movies.sort(() => 0.5 - Math.random());
+				const randomFive = shuffled.slice(0, 5);
+
+				setMovies(randomFive);
+			});
 	}, []);
+
+	const randomFiveHandler = () => {
+		const shuffled = [...movies].sort(() => 0.5 - Math.random());
+		setMovies(shuffled.slice(0, 5));
+	};
 
 	if (movies.length === 0) {
 		return <h1 className='text-2xl font-extrabold tracking-wide m-5  '>Sorry, no movies to watch at the moment</h1>;
@@ -23,7 +34,7 @@ export default function MoviesToWatch() {
 
 	return (
 		<div className='text-center'>
-			<h1 className='text-5xl font-extrabold tracking-wide m-5  '>MOVIES TO WATCH</h1>
+			<h1 className='text-5xl font-extrabold tracking-wide m-5  '>MOVIES TO WATCH </h1>
 			<div className='inline-flex gap-1 m-10'>
 				{fiveMovies.map((movie) => (
 					<MovieCard
@@ -36,6 +47,15 @@ export default function MoviesToWatch() {
 						rating={movie.rating}
 					/>
 				))}
+			</div>
+			<div className='flex flex-col'>
+				<button
+					type='onClick'
+					onClick={randomFiveHandler}
+					className='flex w-50 justify-center rounded-md bg-yellow-600/90  px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-500/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 text-center mx-auto '
+				>
+					Random
+				</button>
 			</div>
 			<h2 className='mt-5 text-center text-1xl font-bold tracking-tight'>
 				You have watched all this movies? <br />
