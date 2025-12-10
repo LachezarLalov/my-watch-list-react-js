@@ -17,12 +17,12 @@ export default function Header() {
 	];
 
 	return (
-		<header className=' z-50 bg-amber-200/10 w-full'>
+		<header className=' fixed z-100 top-0 left-0 w-full h-20  bg-stone-900/80 w-full backdrop-blur-sm'>
 			<nav aria-label='Global' className='flex items-center justify-between p-6 lg:px-8'>
 				<UserGreet user={user} />
 
 				{/* Center navigation */}
-				<div className='flex whitespace-nowrap justify-center flex-1'>
+				<div className=' flex whitespace-nowrap justify-center flex-1'>
 					{navigation.map((item) => (
 						<Link key={item.name} to={item.href} className='hover:text-amber-400 text-xl font-bold mx-5'>
 							{item.name}

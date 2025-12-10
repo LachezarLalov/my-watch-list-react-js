@@ -4,7 +4,7 @@ export default function AddMoviePreview({ title, poster, director, year, rating 
 	return (
 		<div
 			key={title}
-			className='max-w-120 max-h-160 transition-all duration-300 ease-in-out hover:border-amber-400 hover:bg-amber-200/20 hover:shadow-amber-300/70 min-w-60 bg-black/70 m-5 text-center rounded-xl sm:py-1 shadow-amber-300/50 shadow-2xl border-amber-200/80 border-2 border-solid'
+			className='backdrop-blur max-w-120 max-h-160 transition-all duration-300 ease-in-out hover:border-amber-400 hover:bg-amber-200/20 hover:shadow-amber-300/70 min-w-60 bg-black/70 m-5 text-center rounded-xl sm:py-1 shadow-amber-300/50 shadow-2xl border-amber-200/80 border-2 border-solid'
 		>
 			<h1 className='text-[clamp(1.2rem,1.2vw,1.6rem)] font-bold m-4'>{title}</h1>
 			<img src={poster} className='w-100 h-80 object-cover size-300' />

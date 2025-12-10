@@ -97,7 +97,7 @@ export default function Search() {
 					</button>
 				</div>
 
-				<div className='flex justify-center items-center min-h-[450px] min-w-[300px] bg-amber-200/20 mt-5 rounded-xl shadow-2xl'>
+				<div className='backdrop-blur-sm flex justify-center items-center min-h-[450px] min-w-[300px] bg-amber-200/20 mt-5 rounded-xl shadow-2xl'>
 					{!isFound && (
 						<div className='flex flex-col'>
 							<p className='text-center text-2xl font-bold tracking-tight'>NOT FOUND </p>

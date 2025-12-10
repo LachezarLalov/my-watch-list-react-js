@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import TopTenListCard from './TopTenListCard';
 import useTopTenCollection from '../../hooks/useTopTenCollection';
 
-export default function TopTenLists() {
+export default function TopTens() {
 	const { getTopTens } = useTopTenCollection();
 	const [topTenCollections, setTopTenCollections] = useState([]);
 
@@ -18,7 +18,7 @@ export default function TopTenLists() {
 
 	return (
 		<div className='z-50'>
-			<div className='inline-flex gap-1 m-10'>
+			<div className=' flex flex-wrap justify-center gap-5 m-10 '>
 				{topTenCollections.map((collection) => (
 					<TopTenListCard
 						key={collection.ownerName}

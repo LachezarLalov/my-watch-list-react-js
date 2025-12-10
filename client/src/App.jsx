@@ -15,7 +15,7 @@ import MovieDetails from './components/Movies/MovieDetails';
 import EditMovie from './components/Movies/EditMovie';
 import UserProfile from './components/User/UserProfile';
 import CreateMovie from './components/Movies/CreateMovie';
-import TopTenLists from './components/TopTens/TopTenLists';
+import TopTens from './components/TopTens/TopTens';
 import DirectorDetails from './components/Directors/DirectorDetails';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
 
 				<Header className='flex-shrink-0' />
 
-				<div className='flex items-center flex-grow justify-center mx-[10%]'>
+				<div className=' pt-20 flex items-center flex-grow justify-center mx-[10%]'>
 					<Routes>
 						<Route index element={<Home />} />
 						<Route path='/catalog' element={<MovieCatalog />} />
@@ -36,7 +36,7 @@ function App() {
 						<Route path='/login' element={<UserLogin />} />
 						<Route path='/register' element={<UserRegister />} />
 						<Route path='/logout' element={<UserLogout />} />
-						<Route path='/toptens' element={<TopTenLists />} />
+						<Route path='/toptens' element={<TopTens />} />
 
 						<Route element={<RouteGuard />}>
 							<Route path='/search' element={<Search />} />

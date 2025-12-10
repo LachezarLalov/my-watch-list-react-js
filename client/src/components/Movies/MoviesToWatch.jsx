@@ -14,15 +14,14 @@ export default function MoviesToWatch() {
 				const movies = Object.values(data);
 
 				const shuffled = movies.sort(() => 0.5 - Math.random());
-				const randomFive = shuffled.slice(0, 5);
 
-				setMovies(randomFive);
+				setMovies(shuffled);
 			});
 	}, []);
 
 	const randomFiveHandler = () => {
 		const shuffled = [...movies].sort(() => 0.5 - Math.random());
-		setMovies(shuffled.slice(0, 5));
+		setMovies(shuffled);
 	};
 
 	if (movies.length === 0) {
@@ -34,7 +33,7 @@ export default function MoviesToWatch() {
 
 	return (
 		<div className='text-center'>
-			<h1 className='text-5xl font-extrabold tracking-wide m-5  '>MOVIES TO WATCH </h1>
+			<h1 className='text-5xl mt-25 font-extrabold tracking-wide m-5  '>MOVIES TO WATCH </h1>
 			<div className='inline-flex gap-1 m-10'>
 				{fiveMovies.map((movie) => (
 					<MovieCard

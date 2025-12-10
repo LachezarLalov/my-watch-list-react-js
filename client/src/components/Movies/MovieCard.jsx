@@ -28,7 +28,7 @@ export default function MovieCard({ title, poster, director, year, rating, id, m
 	return (
 		<div
 			key={title}
-			className='min-w-60 max-w-70 max-h-200 transition-all duration-300 ease-in-out hover:border-amber-400 hover:bg-amber-200/20 hover:shadow-amber-300/70  bg-black/70 m-3 text-center rounded-xl  shadow-amber-300/50 shadow-2xl border-amber-200/80 border-2 border-solid '
+			className='backdrop-blur-sm min-w-60 max-w-70 max-h-180 transition-all duration-300 ease-in-out hover:border-amber-400 hover:bg-amber-200/20 hover:shadow-amber-300/70  bg-black/70 m-3 text-center rounded-xl  shadow-amber-300/50 shadow-2xl border-amber-200/80 border-2 border-solid '
 		>
 			<h1 className='text-[clamp(1.2rem,1.2vw,1.6rem)] font-bold m-4'>{title}</h1>
 			<img src={poster} onClick={clickHandler} className='hover:cursor-pointer w-300 h-80 object-cover size-300' />
