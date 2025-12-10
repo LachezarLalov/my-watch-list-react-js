@@ -4,13 +4,17 @@ import { useNavigate, useParams } from 'react-router';
 import { useUserContext } from '../../contexts/UserContext';
 import useTopTenCollection from '../../hooks/useTopTenCollection';
 import useTopTenCheck from '../../hooks/useTopTenCheck';
+import useWatchlistCheck from '../../hooks/useWatchlistCheckjs';
+import useWatchlistCollections from '../../hooks/useWatchlistCollections';
 
 export default function MovieDetails() {
 	const { addToTopTens, removeFromTopTens } = useTopTenCollection();
+	const { addToMyWatchlist, removeFromWatchlist } = useWatchlistCollections();
 	const navigate = useNavigate();
 	const id = useParams().id;
 	const [movie, setMovie] = useState({});
 	let isInUserList = useTopTenCheck({ movieId: id });
+	const isInMyWatchlist = useWatchlistCheck({ movieId: id });
 
 	console.log(`isInUserList is: ${isInUserList}`);
 
@@ -30,7 +34,6 @@ export default function MovieDetails() {
 	const auth = user?.accessToken;
 
 	const addToTopTensHandler = () => {
-		isInUserList.isInUserList = true;
 		const add = async () => {
 			await addToTopTens(id);
 		};
@@ -38,7 +41,6 @@ export default function MovieDetails() {
 	};
 
 	const removeFromTopTensHandler = () => {
-		isInUserList.isInUserList = false;
 		const remove = async () => {
 			await removeFromTopTens(id);
 		};
@@ -46,7 +48,17 @@ export default function MovieDetails() {
 	};
 
 	const addToWatchlistHandler = () => {
-		console.log('add');
+		const add = async () => {
+			await addToMyWatchlist(id);
+		};
+		add();
+	};
+
+	const removeFromWatchlistHandler = () => {
+		const remove = async () => {
+			await removeFromWatchlist(id);
+		};
+		remove();
 	};
 
 	const deleteHandler = async () => {
@@ -109,13 +121,23 @@ export default function MovieDetails() {
 										Add to Top10's
 									</button>
 								)}
-								<button
-									onClick={addToWatchlistHandler}
-									type='button'
-									className='max-w-40 flex w-full justify-center rounded-md bg-yellow-500/90 mt-5 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-400/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 min-h-8 hover:cursor-pointer shadow-amber-400/100  shadow-2xl '
-								>
-									Add to watchlist
-								</button>
+								{isInMyWatchlist.isInWatchlist ? (
+									<button
+										onClick={removeFromWatchlistHandler}
+										type='button'
+										className='max-w-40 flex w-full justify-center rounded-md bg-yellow-500/90 mt-5 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-400/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 min-h-8 hover:cursor-pointer shadow-amber-400/100  shadow-2xl '
+									>
+										Remove from watchlist
+									</button>
+								) : (
+									<button
+										onClick={addToWatchlistHandler}
+										type='button'
+										className='max-w-40 flex w-full justify-center rounded-md bg-yellow-500/90 mt-5 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-yellow-400/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500 min-h-8 hover:cursor-pointer shadow-amber-400/100  shadow-2xl '
+									>
+										Add to watchlist
+									</button>
+								)}
 							</div>
 						)}
 						{isOwner && (

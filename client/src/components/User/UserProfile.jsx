@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import TopTenListCard from '../TopTens/TopTenListCard';
 import useTopTenCollection from '../../hooks/useTopTenCollection';
+import MyWacthlistCard from '../Watchlists/MyWatchlistCard';
 
 export default function UserProfile() {
 	const { getMyTopTens } = useTopTenCollection();
@@ -15,10 +16,9 @@ export default function UserProfile() {
 		getAllTopTens();
 	}, []);
 
-	console.log(`before card: ${topTenCollections}`);
 	return (
 		<div className='z-50'>
-			<div className='z-50'>
+			<div className=' flex z-50'>
 				<div className='inline-flex gap-1 m-10'>
 					{topTenCollections.slice(0, 1).map((collection) => (
 						<TopTenListCard
@@ -28,6 +28,9 @@ export default function UserProfile() {
 							movies={topTenCollections}
 						/>
 					))}
+				</div>
+				<div className='inline-flex gap-1 m-10'>
+					<MyWacthlistCard />
 				</div>
 			</div>
 		</div>

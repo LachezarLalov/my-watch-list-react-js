@@ -2,25 +2,25 @@ import { useNavigate } from 'react-router';
 import MovieLike from './MovieLike';
 import MovieRating from './MovieRating';
 import { useUserContext } from '../../contexts/UserContext';
-import useCollections from '../../hooks/useWatchlistCollections';
 import useTopTenCollection from '../../hooks/useTopTenCollection';
 import useTopTenCheck from '../../hooks/useTopTenCheck';
+import useWatchlistCollections from '../../hooks/useWatchlistCollections';
+import useWatchlistCheck from '../../hooks/useWatchlistCheckjs';
 
 export default function MovieCard({ title, poster, director, year, rating, id, movies }) {
 	const { addToTopTens } = useTopTenCollection();
-	const { addToCollection } = useCollections();
+	const { addToMyWatchlist } = useWatchlistCollections();
 	const navigate = useNavigate();
 	const user = useUserContext().user;
 	const isInUserList = useTopTenCheck({ movieId: id });
+	const isInMyWatchlist = useWatchlistCheck({ movieId: id });
 
 	const clickHandler = () => {
 		navigate(`/movies/${id}`);
-		console.log(id);
 	};
 
 	const addToWatchlistHandler = async () => {
-		console.log('add');
-		await addToCollection(id);
+		await addToMyWatchlist(id);
 	};
 	const addToTopTensHandler = async () => {
 		await addToTopTens(id);
@@ -40,7 +40,7 @@ export default function MovieCard({ title, poster, director, year, rating, id, m
 				<MovieLike />
 				{user && (
 					<div className='flex flex-col'>
-						{isInUserList.isInUserList && (
+						{!isInUserList.isInUserList && (
 							<button
 								onClick={addToTopTensHandler}
 								className='text-amber-400 hover:text-amber-500 mb-5 hover:cursor-pointer'
@@ -48,12 +48,14 @@ export default function MovieCard({ title, poster, director, year, rating, id, m
 								Add to Top10's
 							</button>
 						)}
-						<button
-							onClick={addToWatchlistHandler}
-							className='text-amber-400 hover:text-amber-500 mb-1 hover:cursor-pointer'
-						>
-							Add to watchlist
-						</button>
+						{!isInMyWatchlist.isInWatchlist && (
+							<button
+								onClick={addToWatchlistHandler}
+								className='text-amber-400 hover:text-amber-500 mb-1 hover:cursor-pointer'
+							>
+								Add to watchlist
+							</button>
+						)}
 					</div>
 				)}
 			</div>

@@ -21,10 +21,9 @@ export default function TopTenListCard({ title, movies }) {
 		>
 			<h1 className='text-[clamp(1.2rem,1.2vw,1.6rem)] font-bold m-4'>{title}</h1>
 
-			{movieList.map((movie) => (
+			{movieList.slice(0, 10).map((movie) => (
 				<TopTenMovieCard key={movie._id} id={movie._id} title={movie.title} poster={movie.poster} />
 			))}
-
 		</div>
 	);
 }

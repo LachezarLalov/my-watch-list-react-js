@@ -4,7 +4,7 @@ import { useUserContext } from '../contexts/UserContext';
 export default function useWatchlistCollections() {
 	const currentUser = useUserContext().user;
 
-	const addToWatchlist = async (movieId) => {
+	const addToMyWatchlist = async (movieId) => {
 		const result = await fetch(`${SU_WATCHLISTS}`, {
 			method: 'POST',
 			headers: {
@@ -24,7 +24,10 @@ export default function useWatchlistCollections() {
 	};
 
 	const getMyWatchlist = async () => {
-		const urlParams = new URLSearchParams({ where: `_ownerId="${currentUser.id}"`, load: `movie=movieId:movies` });
+		const urlParams = new URLSearchParams({
+			where: `_ownerId="${currentUser.id}"`,
+			load: `movie=movieId:movies,owner=_ownerId:users`,
+		});
 
 		const result = await fetch(`${SU_WATCHLISTS}?${urlParams.toString()}`, {
 			method: 'GET',
@@ -34,46 +37,40 @@ export default function useWatchlistCollections() {
 		})
 			.then((result) => result.json())
 			.catch((err) => alert(err.message));
-		console.log(result);
+
 		return result;
 	};
 
-	const getAllWatchlists = async () => {
-		console.log(`getCollection`);
-		const params = new URLSearchParams({
-			load: 'movie=movieId:movies,owner=_ownerId:users',
-		});
+	const removeFromWatchlist = async (movieId) => {
+		let deleteMovieId = '';
 
-		const result = await fetch(`${SU_WATCHLISTS}?${params.toString()}`, {
-			method: 'GET',
+		const data = await getMyWatchlist();
+		if (!data) return;
+
+		const collectionsArray = await Object.values(data);
+
+		for (let i = 0; i < collectionsArray.length; i++) {
+			if (collectionsArray[i].movieId === movieId) {
+				deleteMovieId = collectionsArray[i]._id;
+				console.log(`found ${collectionsArray[i]._id}`);
+			}
+		}
+
+		console.log(`deleteMovieId is: ${deleteMovieId}`);
+
+		console.log('removing');
+		const result = await fetch(`${SU_WATCHLISTS}/${deleteMovieId}`, {
+			method: 'DELETE',
 			headers: {
+				'Content-Type': 'application/json',
 				'x-authorization': currentUser.accessToken,
 			},
 		})
 			.then((result) => result.json())
 			.catch((err) => alert(err.message));
 
-		console.log(`result is: ${result}`);
-
-		const groupedByUser = result.reduce((acc, item) => {
-			const userId = item._ownerId;
-			const ownerName = item.owner?.username;
-
-			if (!acc[userId]) {
-				acc[userId] = {
-					ownerName,
-					movies: [],
-				};
-			}
-
-			acc[userId].movies.push(item);
-			return acc;
-		}, {});
-
-		console.log(groupedByUser);
-
-		return groupedByUser;
+		return result;
 	};
 
-	return { addToWatchlist, getMyWatchlist, getAllWatchlists };
+	return { addToMyWatchlist, getMyWatchlist, removeFromWatchlist };
 }

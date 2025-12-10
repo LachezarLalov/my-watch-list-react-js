@@ -48,7 +48,6 @@ export default function useControlledForm(
 		}
 
 		const result = await onSubmit(values, url, baseUrl, method, auth);
-		console.log(result);
 
 		if (result.code === 403) {
 			setError('Wrong email or password!');
