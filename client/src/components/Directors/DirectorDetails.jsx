@@ -31,17 +31,20 @@ export default function MovieDetails() {
 					<h2 className='m-2 text-[14px]'>
 						Country: <span className='font-bold'>{director.country}</span>
 					</h2>
-					<h2 className='m-2 text-[14px]'>
+					<h2 className='mt-2 text-[14px]'>
 						Oscars: <span className='font-bold'>{director.oscars}</span>
 					</h2>
-					<h2 className='m-2 text-[14px]'>
+					<h2 className='mb-5 text-[14px]'>
 						Nominations: <span className='font-bold'>{director.nominations}</span>
 					</h2>
 					<h2 className='m-2 text-[14px]'>
-						Movies: <span className='font-bold'>{topMovies}</span>
+						Movies:<br></br> <span className='font-bold'>{topMovies}</span>
 					</h2>
 					<h2 className='mt-5 max-w-[50ch] font-serif font-medium text-lg text-center mx-auto'>
-						Biography: <span className=''>{director.bio}</span>
+						<span className='font-semibold'>
+							Biography:<br></br>{' '}
+						</span>
+						{director.bio}
 					</h2>
 					<div className='flex flex-row justify-center'>
 						<h2 className='m-2 text-[14px]'>

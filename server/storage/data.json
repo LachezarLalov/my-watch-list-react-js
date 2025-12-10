@@ -475,6 +475,21 @@
       "plot": "Paul Atreides unites with the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the universe, he endeavors to prevent a terrible fu...",
       "boxOffice": "$282,144,358",
       "_createdOn": 1765389359962
+    },
+    "e85991a3-a21f-4427-b3dc-8e44c0ad8f58": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "title": "Reservoir Dogs",
+      "year": "1992",
+      "director": "Quentin Tarantino",
+      "awards": "13 wins & 23 nominations total",
+      "country": "United States",
+      "actors": "Harvey Keitel, Tim Roth, Michael Madsen",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMmMzYjg4NDctYWY0Mi00OGViLWIzMTMtYWNlZGY5ZDJmYjk3XkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "8.3",
+      "genre": "Crime, Thriller",
+      "plot": "When a simple jewelry heist goes horribly wrong, the surviving criminals begin to suspect that one of them is a police informant.",
+      "boxOffice": "$2,832,029",
+      "_createdOn": 1765391511785
     }
   },
   "watchlists": {
@@ -663,6 +678,24 @@
       "ownerName": "Admin",
       "movieId": "689f4cb0-8800-435d-a3d5-3219d03fd3ca",
       "_createdOn": 1765390696182
+    },
+    "0395022e-fd63-44a5-a9f9-373c3bfc218e": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "e85991a3-a21f-4427-b3dc-8e44c0ad8f58",
+      "_createdOn": 1765391513217
+    },
+    "6507228d-dc57-4fd8-be7a-74aca3b8bdc8": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "bed3694d-ea69-46fa-a359-01e17de391cd",
+      "_createdOn": 1765391617519
+    },
+    "d603d578-d993-44b0-ba20-4a6b901bd692": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "354b2612-fde3-4774-b7e1-0c0f4a6eedf2",
+      "_createdOn": 1765391624280
     }
   },
   "toptens": {
@@ -917,6 +950,42 @@
       "ownerName": "Admin",
       "movieId": "1276626f-5e5e-4b8d-95b6-185dab09b168",
       "_createdOn": 1765390661764
+    },
+    "1b4d4938-57ac-482b-8de6-e77ac5fb12b8": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "e85991a3-a21f-4427-b3dc-8e44c0ad8f58",
+      "_createdOn": 1765391512801
+    },
+    "ac60b905-be7f-4175-98d6-d53ea4f3ec36": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "58172976-3f7b-47dd-a58f-9a9a20e1eecf",
+      "_createdOn": 1765391614414
+    },
+    "bae0affc-8cda-4043-b5f7-413b47422030": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "e5b88127-9bd7-4ae5-9e7b-a8e312358d16",
+      "_createdOn": 1765391616391
+    },
+    "02bafa8e-6cab-4e2a-8d5a-c78d04d0f017": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "89366a98-84ac-4419-90d9-572e5a07ea4c",
+      "_createdOn": 1765391619686
+    },
+    "83aafccd-d188-4c52-ac69-2f1665b1cb4d": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "9ded3e02-31e1-4f02-8406-7ee981ebd5dc",
+      "_createdOn": 1765391622025
+    },
+    "a06685c1-5384-48d4-afba-f4cfc6e2d16b": {
+      "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+      "ownerName": "Admin",
+      "movieId": "354b2612-fde3-4774-b7e1-0c0f4a6eedf2",
+      "_createdOn": 1765391623697
     }
   }
 }

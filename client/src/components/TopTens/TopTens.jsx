@@ -18,6 +18,7 @@ export default function TopTens() {
 
 	return (
 		<div className='z-50'>
+			<h1 className='text-center text-5xl mt-25 font-extrabold tracking-wide m-5  '>TOP 10's</h1>
 			<div className=' flex flex-wrap justify-center gap-5 m-10 '>
 				{topTenCollections.map((collection) => (
 					<TopTenListCard
