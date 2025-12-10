@@ -36,7 +36,6 @@ export default function Search() {
 		const localResult = await localServerResponse.json().then();
 
 		if (localResult.length > 0) {
-			console.log(localResult);
 			setSearchValues({
 				id: localResult[0]._id ? localResult[0]._id : '',
 				title: localResult[0].title ? localResult[0].title : '',

@@ -39,7 +39,6 @@ export default function useWatchlistCollections() {
 		})
 			.then((result) => result.json())
 			.catch((err) => alert(err.message));
-console.log(result)
 
 
 		return result;
@@ -56,13 +55,9 @@ console.log(result)
 		for (let i = 0; i < collectionsArray.length; i++) {
 			if (collectionsArray[i].movieId === movieId) {
 				deleteMovieId = collectionsArray[i]._id;
-				console.log(`found ${collectionsArray[i]._id}`);
 			}
 		}
 
-		console.log(`deleteMovieId is: ${deleteMovieId}`);
-
-		console.log('removing');
 		const result = await fetch(`${SU_WATCHLISTS}/${deleteMovieId}`, {
 			method: 'DELETE',
 			headers: {

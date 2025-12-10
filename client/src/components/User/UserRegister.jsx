@@ -115,7 +115,7 @@ export default function UserRegister() {
 					<div>
 						<button
 							type='submit'
-							className='flex w-full justify-center rounded-md bg-indigo-600 mt-10 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+							className='flex w-full justify-center rounded-md mt-10 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs  focus-visible:outline-2 focus-visible:outline-offset-2 bg-cyan-700/90 hover:bg-cyan-600'
 						>
 							Register
 						</button>
@@ -124,7 +124,7 @@ export default function UserRegister() {
 
 				<p className='bg-black/50 rounded-3xl shadow-md mt-8 text-center text-sm/6 '>
 					Already registered?{' '}
-					<Link to='/login' className='font-extrabold text-white hover:text-indigo-500'>
+					<Link to='/login' className='font-extrabold text-cyan-700/90 hover:text-cyan-600'>
 						Login here
 					</Link>
 				</p>

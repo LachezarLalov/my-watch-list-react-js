@@ -1,15 +1,10 @@
 import { useNavigate } from 'react-router';
 
 export default function TopTenMovieCard({ title, poster, id }) {
-	// 	const clickHandler = () => {
-	// 	navigate(`/movies/${id}`);
-	// 	console.log(id);
-	// };
 
 	const navigate = useNavigate();
 	const clickHandler = () => {
 		navigate(`/movies/${id}`);
-		console.log(id);
 	};
 	return (
 		<div

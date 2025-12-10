@@ -16,7 +16,6 @@ export default function MovieDetails() {
 	let isInUserList = useTopTenCheck({ movieId: id });
 	const isInMyWatchlist = useWatchlistCheck({ movieId: id });
 
-	console.log(`isInUserList is: ${isInUserList}`);
 
 	useEffect(() => {
 		fetch(`${SU_MOVIES}/${id}`)
@@ -25,7 +24,6 @@ export default function MovieDetails() {
 			.catch((err) => alert(err.message));
 	}, [id]);
 
-	console.log(movie);
 	const authorId = movie._ownerId;
 	const userId = useUserContext().user?.id;
 	const isOwner = authorId === userId;
@@ -67,7 +65,6 @@ export default function MovieDetails() {
 		if (!confirmed) return;
 
 		const response = await fetch(`${SU_MOVIES}/${id}`, { method: 'DELETE', headers: { 'x-authorization': auth } });
-		console.log(response);
 		navigate('/');
 		return response.status;
 	};
@@ -77,7 +74,6 @@ export default function MovieDetails() {
 		return movie;
 	};
 
-	console.log(`isInUserList is: ${isInUserList.isInUserList}`);
 	return (
 		<div className='flex flex-row text-center z-30 bg-amber-200/10 m-5 rounded-xl shadow-2xl '>
 			<img

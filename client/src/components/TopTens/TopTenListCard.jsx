@@ -9,10 +9,8 @@ export default function TopTenListCard({ title, movies }) {
 	// const navigate = useNavigate();
 	// const { addToCollection } = useCollections();
 	// const user = useUserContext().user;
-	console.log(`movies are: `, movies);
 
 	const movieList = movies.map((item) => item.movie);
-	console.log(movieList);
 
 	return (
 		<div

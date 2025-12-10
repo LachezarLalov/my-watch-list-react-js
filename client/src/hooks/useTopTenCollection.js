@@ -81,13 +81,9 @@ export default function useTopTenCollection() {
 		for (let i = 0; i < collectionsArray.length; i++) {
 			if (collectionsArray[i].movieId === movieId) {
 				deleteMovieId = collectionsArray[i]._id;
-				console.log(`found ${collectionsArray[i]._id}`);
 			}
 		}
 
-		console.log(`deleteMovieId is: ${deleteMovieId}`);
-
-		console.log('removing');
 		const result = await fetch(`${SU_TOP_TENS}/${deleteMovieId}`, {
 			method: 'DELETE',
 			headers: {

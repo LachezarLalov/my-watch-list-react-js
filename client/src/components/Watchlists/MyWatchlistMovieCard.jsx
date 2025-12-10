@@ -4,7 +4,6 @@ export default function MyWachlistMovieCard({ title, poster, id }) {
 	const navigate = useNavigate();
 	const clickHandler = () => {
 		navigate(`/movies/${id}`);
-		console.log(id);
 	};
 	return (
 		<div

@@ -30,7 +30,7 @@ export default function MovieCatalog() {
 					className=' hover:text-amber-300 font-semibold
 						transition-all duration-300 ease-in-out hover:shadow-amber-600/100 '
 				>
-					Newst
+					Newest
 				</button>
 				<button
 					onClick={() => setSearchParams('sortBy=_createdOn')}

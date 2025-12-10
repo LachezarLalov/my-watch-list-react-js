@@ -75,7 +75,7 @@ export default function UserLogin() {
 					<div>
 						<button
 							type='submit'
-							className='flex w-full justify-center rounded-md bg-indigo-600 mt-10 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+							className='flex w-full justify-center rounded-md mt-10 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xsfocus-visible:outline-2 focus-visible:outline-offset-2 bg-cyan-700/90 hover:bg-cyan-600'
 						>
 							Sign in
 						</button>
@@ -84,7 +84,7 @@ export default function UserLogin() {
 
 				<p className=' mt-10 text-center text-sm/6 '>
 					Not a member?{' '}
-					<Link to='/register' className='font-bold text-white hover:text-indigo-500'>
+					<Link to='/register' className='font-bold text-cyan-700/90 hover:text-cyan-600'>
 						Sign up here
 					</Link>
 				</p>

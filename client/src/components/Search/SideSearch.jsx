@@ -26,7 +26,6 @@ export default function SideSearch({ setSearchValues, searchValues }) {
 		const localResult = await localServerResponse.json();
 
 		if (localResult.length > 0) {
-			console.log(localResult);
 			setSearchValues({
 				id: localResult[0]._id,
 				title: localResult[0].title ? localResult[0].title : '',
@@ -47,9 +46,7 @@ export default function SideSearch({ setSearchValues, searchValues }) {
 		const omdbServerResponse = await fetch(`https://omdbapi.com/?apikey=${OMDB_API_KEY}&t=${query}`);
 
 		const omdbResult = await omdbServerResponse.json();
-		console.log(omdbResult);
 
-		console.log(omdbResult.Title);
 		setSearchValues({
 			title: omdbResult.Title,
 			year: omdbResult.Year,
@@ -64,7 +61,6 @@ export default function SideSearch({ setSearchValues, searchValues }) {
 			boxOffice: omdbResult.BoxOffice,
 		});
 
-		console.log(searchValues);
 	};
 
 	return (

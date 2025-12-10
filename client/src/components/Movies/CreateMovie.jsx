@@ -82,8 +82,6 @@ export default function CreateMovie() {
 		isLocal = true;
 	}
 
-	console.log(isLocal);
-
 	const addToTopTensHandler = () => {
 		const add = async () => {
 			await addToTopTens(searchValues.id);
@@ -117,7 +115,7 @@ export default function CreateMovie() {
 							<button
 								onClick={addToTopTensHandler}
 								type='button'
-								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
+								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-cyan-700/90 hover:bg-cyan-600'
 							>
 								Add to top 10
 							</button>
@@ -125,7 +123,7 @@ export default function CreateMovie() {
 							<button
 								onClick={addToWatchlistHandler}
 								type='button'
-								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
+								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-cyan-700/90 hover:bg-cyan-600'
 							>
 								Add to watch list
 							</button>
@@ -320,7 +318,7 @@ export default function CreateMovie() {
 								type='button'
 								disabled={isLocal}
 								className={`mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white 
-									${isLocal ? 'bg-gray-400 cursor-not-allowed opacity-60' : 'bg-indigo-600 hover:bg-indigo-500'}`}
+									${isLocal ? 'bg-gray-400 cursor-not-allowed opacity-60' : 'bg-cyan-700/90 hover:bg-cyan-600'}`}
 							>
 								Load
 							</button>
@@ -329,7 +327,7 @@ export default function CreateMovie() {
 							type='submit'
 							disabled={isLocal}
 							className={`mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white 
-					${isLocal ? 'bg-gray-400 cursor-not-allowed opacity-60' : 'bg-indigo-600 hover:bg-indigo-500'}`}
+					${isLocal ? 'cursor-not-allowed opacity-60' : 'bg-cyan-700/90 hover:bg-cyan-600'}`}
 						>
 							Add the movie
 						</button>

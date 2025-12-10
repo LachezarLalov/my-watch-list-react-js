@@ -55,7 +55,6 @@ export default function useControlledForm(
 		}
 
 		if (result.accessToken) {
-			console.log(result);
 			const { username, email, accessToken, _id } = result;
 			loginHandler(username, email, accessToken, _id);
 			navigate('/');

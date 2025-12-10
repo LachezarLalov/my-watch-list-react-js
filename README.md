@@ -18,9 +18,10 @@ A **Single Page Application (SPA)** built with **ReactJS**, allowing users to ex
 
 Guests can:
 
+-  See home page with recommended movies
+-  See the movies catalog
 -  Browse other users **Top 10 Movie Lists**
--  View the platform **Overall Top 10 Movies**
--  Get **Random Movie Recommendations**
+-  See directors catalog
 -  Explore detailed pages for:
    -  **Movies**
    -  **Directors**
@@ -32,17 +33,17 @@ Guests can:
 Logged-in users can:
 
 -  Everything guest users can do
--  Create and manage their own **Top 10 Movie List**
--  Add movies from other users lists to a personal **Watch List**
--  Add or remove movies from their **Top 10**
--  Search for movies from the **OMDB API**
+-  Add new movies to the server (persistent)
+-  Manage their own **Top 10 Movie List** (public) and **Watch List** (private in profile)
+-  Search in already added movies
+-  Search and load info for movies from **OMDB API**
 
 ---
 
 ## Installation
 
 1. Clone the repository
-2. Install dependencies using `npm install` in terminal
-3. Run the server using `cd server/ && node server.js` in terminal and leave it running
-4. Open new terminal run the client using `cd client/ && npm run dev` in terminal
-5. Open `http://localhost:3000/` in browser
+2. In terminal in **server** folder run the server using `node server.js` in terminal and leave it running
+3. Open new terminal in **client** folder and install dependencies using `npm install`
+4. In the same terminal run the client using `&& npm run dev` in terminal
+5. Open `http://localhost:5173/` in browser

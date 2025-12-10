@@ -6,12 +6,14 @@ import { Link } from 'react-router';
 
 export default function MoviesToWatch() {
 	const [movies, setMovies] = useState([]);
+	const [moviesCount, setMoviesCount] = useState(0);
 
 	useEffect(() => {
 		fetch(SU_MOVIES)
 			.then((res) => res.json())
 			.then((data) => {
 				const movies = Object.values(data);
+				setMoviesCount(movies.length)
 
 				const shuffled = movies.sort(() => 0.5 - Math.random());
 
@@ -34,6 +36,7 @@ export default function MoviesToWatch() {
 	return (
 		<div className='text-center'>
 			<h1 className='text-5xl mt-25 font-extrabold tracking-wide m-5  '>MOVIES TO WATCH </h1>
+			<div className='inline-flex gap-1  -mt-5'> {moviesCount} movies </div>
 			<div className='inline-flex gap-1 m-10'>
 				{fiveMovies.map((movie) => (
 					<MovieCard
