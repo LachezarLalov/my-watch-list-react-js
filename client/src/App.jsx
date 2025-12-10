@@ -16,6 +16,7 @@ import EditMovie from './components/Movies/EditMovie';
 import UserProfile from './components/User/UserProfile';
 import CreateMovie from './components/Movies/CreateMovie';
 import TopTenLists from './components/TopTens/TopTenLists';
+import DirectorDetails from './components/Directors/DirectorDetails';
 
 function App() {
 	return (
@@ -29,8 +30,9 @@ function App() {
 					<Routes>
 						<Route index element={<Home />} />
 						<Route path='/catalog' element={<MovieCatalog />} />
-						<Route path='/directors' element={<Directors />} />
 						<Route path='/movies/:id' element={<MovieDetails />} />
+						<Route path='/directors' element={<Directors />} />
+						<Route path='/directors/:id' element={<DirectorDetails />} />
 						<Route path='/login' element={<UserLogin />} />
 						<Route path='/register' element={<UserRegister />} />
 						<Route path='/logout' element={<UserLogout />} />
