@@ -10,8 +10,7 @@ export default function useControlledForm(
 	method,
 	auth,
 	setPreviewValues,
-	redirect,
-	
+	redirect
 ) {
 	const { loginHandler } = useUserContext();
 	const [values, setValues] = useState(initialValues);

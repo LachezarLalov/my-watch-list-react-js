@@ -7,7 +7,6 @@ import { useUserContext } from '../../contexts/UserContext';
 import { useParams } from 'react-router';
 
 export default function EditMovie() {
-	const [setIsLoaded] = useState(false);
 	const [previewValues, setPreviewValues] = useState({});
 	const [movieValues, setMovieValues] = useState({
 		title: '',
@@ -28,7 +27,6 @@ export default function EditMovie() {
 		fetch(`${SU_MOVIES}/${id}`)
 			.then((res) => res.json())
 			.then((movie) => setMovieValues(movie))
-			.then(() => setIsLoaded[true])
 			.catch((err) => alert(err.message));
 	}, [id]);
 
@@ -36,9 +34,23 @@ export default function EditMovie() {
 		setPreviewValues(movieValues);
 	}, [movieValues]);
 
+	useEffect(() => {
+		values.title = movieValues.title;
+		values.year = movieValues.year;
+		values.director = movieValues.director;
+		values.awards = movieValues.awards;
+		values.country = movieValues.country;
+		values.actors = movieValues.actors;
+		values.poster = movieValues.poster;
+		values.rating = movieValues.rating;
+		values.genre = movieValues.genre;
+		values.plot = movieValues.plot;
+		values.boxOffice = movieValues.boxOffice;
+	}, [movieValues]);
+
 	const baseUrl = SU_MOVIES;
-	const url = '';
-	const method = 'POST';
+	const url = `/${id}`;
+	const method = 'PUT';
 	const { user } = useUserContext();
 	const auth = user.accessToken;
 	const redirect = true;
@@ -48,8 +60,8 @@ export default function EditMovie() {
 	const { values, changeHandler, submitHandler } = useControlledForm(
 		initialValues,
 		useRequest,
-		baseUrl,
 		url,
+		baseUrl,
 		method,
 		auth,
 		setPreviewValues,
@@ -259,7 +271,7 @@ export default function EditMovie() {
 		           bg-indigo-600 px-3 py-2 text-sm font-semibold text-white
 		           hover:bg-indigo-500'
 						>
-							Add the movie
+							Update
 						</button>
 					</form>
 				</div>

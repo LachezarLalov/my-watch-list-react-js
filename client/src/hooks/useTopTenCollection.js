@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { SU_TOP_TENS } from '../config';
 import { useUserContext } from '../contexts/UserContext';
 
 export default function useTopTenCollection() {
 	const currentUser = useUserContext().user;
+	const [deleteMovieId, setDeleteMovieId] = useState('');
 
 	const addToTopTens = async (movieId) => {
 		const result = await fetch(`${SU_TOP_TENS}`, {
@@ -51,9 +53,6 @@ export default function useTopTenCollection() {
 
 		const result = await fetch(`${SU_TOP_TENS}?${params.toString()}`, {
 			method: 'GET',
-			headers: {
-				'x-authorization': currentUser.accessToken,
-			},
 		})
 			.then((result) => result.json())
 			.catch((err) => alert(err.message));
@@ -80,5 +79,36 @@ export default function useTopTenCollection() {
 		return groupedByUser;
 	};
 
-	return { addToTopTens, getMyTopTens, getTopTens };
+	const removeFromTopTens = async (movieId) => {
+		let deleteMovieId = '';
+
+		const data = await getMyTopTens();
+		if (!data) return;
+
+		const collectionsArray = await Object.values(data);
+
+		for (let i = 0; i < collectionsArray.length; i++) {
+			if (collectionsArray[i].movieId === movieId) {
+				deleteMovieId = collectionsArray[i]._id;
+				console.log(`found ${collectionsArray[i]._id}`);
+			}
+		}
+
+		console.log(`deleteMovieId is: ${deleteMovieId}`);
+
+		console.log('removing');
+		const result = await fetch(`${SU_TOP_TENS}/${deleteMovieId}`, {
+			method: 'DELETE',
+			headers: {
+				'Content-Type': 'application/json',
+				'x-authorization': currentUser.accessToken,
+			},
+		})
+			.then((result) => result.json())
+			.catch((err) => alert(err.message));
+
+		return result;
+	};
+
+	return { addToTopTens, getMyTopTens, getTopTens, removeFromTopTens };
 }

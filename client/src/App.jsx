@@ -9,7 +9,7 @@ import UserLogin from './components/User/UserLogin';
 import UserRegister from './components/User/UserRegister';
 import UserLogout from './components/User/UserLogout';
 import { UserProvider } from './contexts/UserContext';
-import Search from './components/Search';
+import Search from './components/Search/Search';
 import RouteGuard from './components/RouteGuard';
 import MovieDetails from './components/Movies/MovieDetails';
 import EditMovie from './components/Movies/EditMovie';

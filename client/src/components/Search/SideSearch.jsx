@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { SU_MOVIES } from '../config';
+import { SU_MOVIES } from '../../config';
 
 const OMDB_API_KEY = 'e4aa255b';
 
-export default function Search({ setSearchValues, searchValues }) {
+export default function SideSearch({ setSearchValues, searchValues }) {
 	const [query, setQuery] = useState('');
 
 	const changeHandler = (e) => {
@@ -14,7 +14,7 @@ export default function Search({ setSearchValues, searchValues }) {
 		e.preventDefault();
 
 		//TODO use useRequest for local server
-		const urlParams = new URLSearchParams({ where: `title="${query}"` });
+		const urlParams = new URLSearchParams({ where: `title like "${query}"` });
 
 		const localServerResponse = await fetch(`${SU_MOVIES}?${urlParams.toString()}`, {
 			method: 'GET',
@@ -28,10 +28,18 @@ export default function Search({ setSearchValues, searchValues }) {
 		if (localResult.length > 0) {
 			console.log(localResult);
 			setSearchValues({
-				title: localResult[0].title,
-				year: localResult[0].year,
-				director: localResult[0].director,
-				poster: localResult[0].imageUrl,
+				id: localResult[0]._id,
+				title: localResult[0].title ? localResult[0].title : '',
+				year: localResult[0].year ? localResult[0].year : '',
+				director: localResult[0].director ? localResult[0].director : '',
+				awards: localResult[0].awards ? localResult[0].awards : '',
+				country: localResult[0].country ? localResult[0].country : '',
+				actors: localResult[0].actors ? localResult[0].actors : '',
+				poster: localResult[0].poster ? localResult[0].poster : '',
+				rating: localResult[0].rating ? localResult[0].rating : '',
+				genre: localResult[0].genre ? localResult[0].genre : '',
+				plot: localResult[0].plot ? localResult[0].plot : '',
+				boxOffice: localResult[0].boxOffice ? localResult[0].boxOffice : '',
 			});
 			return localResult;
 		}

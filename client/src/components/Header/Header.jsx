@@ -12,19 +12,19 @@ export default function Header() {
 		{ name: "Top 10's", href: '/toptens' },
 		{ name: 'Movies', href: '/catalog' },
 		{ name: 'Directors', href: '/directors' },
-		// ...(isAuth ? [{ name: 'Search', href: '/search' }] : []),
+		{ name: 'Search', href: '/search' },
 		...(isAuth ? [{ name: 'Add movie', href: '/movies/create' }] : []),
 	];
 
 	return (
-		<header className='z-100'>
+		<header className=' z-50 bg-amber-200/10 w-full'>
 			<nav aria-label='Global' className='flex items-center justify-between p-6 lg:px-8'>
 				<UserGreet user={user} />
 
 				{/* Center navigation */}
 				<div className='flex whitespace-nowrap justify-center flex-1'>
 					{navigation.map((item) => (
-						<Link key={item.name} to={item.href} className='hover:text-amber-300 text-2xl font-bold mx-5'>
+						<Link key={item.name} to={item.href} className='hover:text-amber-400 text-xl font-bold mx-5'>
 							{item.name}
 						</Link>
 					))}

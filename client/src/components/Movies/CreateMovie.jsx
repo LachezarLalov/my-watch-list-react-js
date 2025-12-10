@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useControlledForm from '../../hooks/useControlledFrom';
 import useRequest from '../../hooks/useRequest';
-import Search from '../Search';
+import Search from '../Search/SideSearch';
 import AddMoviePreview from './AddMoviePreview';
 import { SU_MOVIES } from '../../config';
 import { useUserContext } from '../../contexts/UserContext';
@@ -46,8 +46,8 @@ export default function CreateMovie() {
 	const { values, changeHandler, submitHandler } = useControlledForm(
 		initialValues,
 		useRequest,
-		baseUrl,
 		url,
+		baseUrl,
 		method,
 		auth,
 		setPreviewValues,
@@ -92,23 +92,23 @@ export default function CreateMovie() {
 					{isLocal && (
 						<div className='flex flex-col justify-center text-center '>
 							<p className='text-red-500 mt-2 font-bold justify-center '>We have that movie!</p>
-					
-						<button
-							onClick={loadHandler}
-							type='button'
-							className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
-							>
-							Add to top 10
-						</button>
 
-												<button
-							onClick={loadHandler}
-							type='button'
-							className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
+							<button
+								onClick={loadHandler}
+								type='button'
+								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
 							>
-							Add to watch list
-						</button>
-							</div>
+								Add to top 10
+							</button>
+
+							<button
+								onClick={loadHandler}
+								type='button'
+								className='mt-8 flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold text-white  bg-indigo-600 hover:bg-indigo-500'
+							>
+								Add to watch list
+							</button>
+						</div>
 					)}
 				</div>
 

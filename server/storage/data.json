@@ -45,21 +45,6 @@
       "boxOffice": "$700,426,566",
       "_createdOn": 1765199765063
     },
-    "87645be1-f4f4-4d5e-9276-ce312616d02a": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
-      "title": "Jaws",
-      "year": "1975",
-      "director": "Steven Spielberg",
-      "awards": "Won 3 Oscars. 16 wins & 20 nominations total",
-      "country": "United States",
-      "actors": "Roy Scheider, Robert Shaw, Richard Dreyfuss",
-      "poster": "https://m.media-amazon.com/images/M/MV5BYjViNDQzNmUtYzkxZi00NTk5LTljMmItYjJlZmZkODIxNjU1XkEyXkFqcGc@._V1_SX300.jpg",
-      "rating": "8.1",
-      "genre": "Adventure, Horror, Thriller",
-      "plot": "When a massive killer shark unleashes chaos on a beach community off Long Island, it's up to the local police chief, a marine biologist, and an old seafarer to hunt the beast down.",
-      "boxOffice": "$280,083,300",
-      "_createdOn": 1765235009800
-    },
     "33e0e27c-3660-4b10-a66b-f42b5fea16d3": {
       "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
       "title": "Léon: The Professional",
@@ -105,20 +90,142 @@
       "boxOffice": "$63,820,180",
       "_createdOn": 1765296402664
     },
-    "0e5d6bd6-4119-4988-9e06-25ae8885adb6": {
+    "54d3b04d-fdd0-4ecf-82b6-aba55f9431f9": {
       "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
-      "title": "Above the Rim",
-      "year": "1994",
-      "director": "Jeff Pollack",
-      "awards": "1 nomination total",
+      "title": "Rambo",
+      "year": "2008",
+      "director": "Sylvester Stallone",
+      "awards": "1 win & 1 nomination total",
+      "country": "Germany, United States",
+      "actors": "Sylvester Stallone, Julie Benz, Matthew Marsden",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTI5Mjg1MzM4NF5BMl5BanBnXkFtZTcwNTAyNzUzMw@@._V1_SX300.jpg",
+      "rating": "7.0",
+      "genre": "Action, Thriller",
+      "plot": "In Thailand, John Rambo joins a group of mercenaries to venture into war-torn Burma, and rescue a group of Christian aid workers who were kidnapped by the ruthless local infantry unit.",
+      "boxOffice": "$42,754,105",
+      "_createdOn": 1765309191878
+    },
+    "de03eb24-66a3-4488-87ec-0ecb2a2b9563": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
+      "title": "Shrek",
+      "year": "2001",
+      "director": "Andrew Adamson, Vicky Jenson",
+      "awards": "Won 1 Oscar. 40 wins & 60 nominations total",
       "country": "United States",
-      "actors": "Duane Martin, Tupac Shakur, Leon",
-      "poster": "https://m.media-amazon.com/images/M/MV5BOWVkZTNmZDItMTdiOS00NTVmLTg4MzgtZjBkYjI2NjcwNTgyXkEyXkFqcGc@._V1_SX300.jpg",
-      "rating": "6.6",
-      "genre": "Crime, Drama, Sport",
-      "plot": "Story of a promising high school basketball star and his relationships with two brothers, one a drug dealer and the other a former basketball star fallen on hard times and now employed as a security guard.",
-      "boxOffice": "$16,192,320",
-      "_createdOn": 1765303968188
+      "actors": "Mike Myers, Eddie Murphy, Cameron Diaz",
+      "poster": "https://m.media-amazon.com/images/M/MV5BN2FkMTRkNTUtYTI0NC00ZjI4LWI5MzUtMDFmOGY0NmU2OGY1XkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "7.9",
+      "genre": "Animation, Adventure, Comedy",
+      "plot": "A mean lord exiles fairytale creatures to the swamp of a grumpy ogre, who must go on a quest and rescue a princess for the lord in order to get his land back.",
+      "boxOffice": "$268,698,241",
+      "_createdOn": 1765316686442
+    },
+    "bf46230c-2579-4178-852d-704a8de507e3": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "title": "La Dolce Vita",
+      "year": "1960",
+      "director": "Federico Fellini",
+      "awards": "Won 1 Oscar. 11 wins & 12 nominations total",
+      "country": "Italy, France",
+      "actors": "Marcello Mastroianni, Anita Ekberg, Anouk Aimée",
+      "poster": "https://m.media-amazon.com/images/M/MV5BMTkxMjQ4NzU5N15BMl5BanBnXkFtZTgwMTkwODkzMTE@._V1_SX300.jpg",
+      "rating": "8.0",
+      "genre": "Comedy, Drama",
+      "plot": "A series of stories following a week in the life of a philandering tabloid journalist living in Rome.",
+      "boxOffice": "N/A",
+      "_createdOn": 1765322958160
+    },
+    "40be6f41-9cb1-4300-ba4d-1a83919ceb8c": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "title": "Seven Samurai",
+      "year": "1954",
+      "director": "Akira Kurosawa",
+      "awards": "Nominated for 2 Oscars. 5 wins & 9 nominations total",
+      "country": "Japan",
+      "actors": "Toshirô Mifune, Takashi Shimura, Keiko Tsushima",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZjliMWExOTMtZDQ3ZS00NWU3LWIyN2EtMjllNzk3ZTNlYzg4XkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "8.6",
+      "genre": "Action, Drama",
+      "plot": "Farmers from a village exploited by bandits hire a veteran samurai for protection, and he gathers six other samurai to join him.",
+      "boxOffice": "$820,278",
+      "_createdOn": 1765323065387
+    },
+    "bb67ecd4-a3ae-4a96-b24e-1d341263411f": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "title": "Brazil",
+      "year": "1985",
+      "director": "Terry Gilliam",
+      "awards": "Nominated for 2 Oscars. 9 wins & 6 nominations total",
+      "country": "United Kingdom, United States",
+      "actors": "Jonathan Pryce, Kim Greist, Robert De Niro",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjI1MTAzNmYtYzQ3Zi00ZWE0LWJiZmQtY2UwZWU3ZTE4OGQ3XkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "7.8",
+      "genre": "Drama, Sci-Fi, Thriller",
+      "plot": "A bureaucrat in a dystopic society becomes an enemy of the state as he pursues the woman of his dreams.",
+      "boxOffice": "$9,929,135",
+      "_createdOn": 1765323282355
+    },
+    "1276626f-5e5e-4b8d-95b6-185dab09b168": {
+      "title": "2001: A Space Odyssey ",
+      "year": "1970",
+      "director": "Stanley Kubrick",
+      "awards": "Won 1 Oscar. 18 wins & 14 nominations total",
+      "country": "United Kingdom, United States",
+      "actors": "Keir Dullea, Gary Lockwood, William Sylvester",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNjU0NDFkMTQtZWY5OS00MmZhLTg3Y2QtZmJhMzMzMWYyYjc2XkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "8.3",
+      "genre": "Adventure, Sci-Fi",
+      "plot": "When a mysterious artifact is uncovered on the Moon, a spacecraft manned by two humans and one supercomputer is sent to Jupiter to find its origins.",
+      "boxOffice": "$60,481,243",
+      "_createdOn": 1765323405959,
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "_updatedOn": 1765361329867
+    },
+    "1e88660e-97ff-4bf1-8d9b-b20ca056fed4": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "title": "The Seventh Seal",
+      "year": "1957",
+      "director": "Ingmar Bergman",
+      "awards": "9 wins & 2 nominations total",
+      "country": "Sweden",
+      "actors": "Max von Sydow, Gunnar Björnstrand, Bengt Ekerot",
+      "poster": "https://m.media-amazon.com/images/M/MV5BZDlmYTkzOWUtODQ0MS00MmM4LWE3ZjMtYTEwNGUwMmJkYzIxXkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "8.1",
+      "genre": "Drama, Fantasy",
+      "plot": "A knight returning to Sweden after the Crusades seeks answers about life, death, and the existence of God as he plays chess against the Grim Reaper during the Black Plague.",
+      "boxOffice": "N/A",
+      "_createdOn": 1765323801574
+    },
+    "7f584d27-51a5-4f51-807c-925e52acaf2f": {
+      "title": "All That Jazz",
+      "year": "1979",
+      "director": "Bob Fosse",
+      "awards": "Won 4 Oscars. 12 wins & 14 nominations total",
+      "country": "United States",
+      "actors": "Roy Scheider, Jessica Lange, Ann Reinking",
+      "poster": "https://m.media-amazon.com/images/M/MV5BNmU1ZjBlNWItMjNiYS00OWNlLTk3YjUtN2U1MTI0OTAxOGEwXkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "7.8",
+      "genre": "Drama, Music, Musical",
+      "plot": "Director/choreographer Bob Fosse tells his own life story as he details the sordid career of Joe Gideon, a womanizing, drug-using dancer.",
+      "boxOffice": "$37,823,676",
+      "_createdOn": 1765323996355,
+      "_updatedOn": 1765361362667,
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22"
+    },
+    "59112439-8b2c-4021-bbe6-c4e144a940f6": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "title": "The Aviator",
+      "year": "2004",
+      "director": "Martin Scorsese",
+      "awards": "Won 5 Oscars. 89 wins & 131 nominations total",
+      "country": "Germany, United States",
+      "actors": "Leonardo DiCaprio, Cate Blanchett, Kate Beckinsale",
+      "poster": "https://m.media-amazon.com/images/M/MV5BYTUyYWJlNDgtOTM5Ny00YTQ3LWFmYTgtZjJiNTNkYjJlMmY4XkEyXkFqcGc@._V1_SX300.jpg",
+      "rating": "7.5",
+      "genre": "Biography, Drama",
+      "plot": "A biopic depicting the early years of legendary director and aviator Howard Hughes' career from the late 1920s to the mid 1940s.",
+      "boxOffice": "$102,610,330",
+      "_createdOn": 1765359613267
     }
   },
   "watchlists": {
@@ -154,53 +261,35 @@
     }
   },
   "toptens": {
-    "fbcb73a8-9308-4e75-ae2f-9000b2104889": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be23",
-      "ownerName": "Kitodar",
-      "movieId": "c9c902f9-fc5f-44cd-9c26-40214bbab32e",
-      "_createdOn": 1765297907076
-    },
-    "7c66f34a-14e3-4e65-97a0-11ebf3fea3f1": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be23",
-      "ownerName": "Kitodar",
-      "movieId": "30fec002-4eab-45b2-8b0a-fef8b385b99e",
-      "_createdOn": 1765302382954
-    },
-    "f7706b15-7c1f-4a12-b5a5-45658d417fa4": {
+    "fb3d95d8-cd0f-43a2-95a1-8f0a0ebb2167": {
       "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
       "ownerName": "OgiG",
       "movieId": "d7d8ce2e-f75d-4ad6-b68c-5629f6e17e9c",
-      "_createdOn": 1765302482970
+      "_createdOn": 1765309439551
     },
-    "08ab24be-a7bd-4cf1-8261-21b22484a61b": {
+    "29414ebb-5bd6-4166-8fe1-432e61070498": {
       "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
       "ownerName": "OgiG",
-      "movieId": "30fec002-4eab-45b2-8b0a-fef8b385b99e",
-      "_createdOn": 1765302484840
+      "movieId": "de03eb24-66a3-4488-87ec-0ecb2a2b9563",
+      "_createdOn": 1765316699344
     },
-    "23cad70f-41ac-4755-832b-1b06c94ee9a6": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
-      "ownerName": "OgiG",
-      "movieId": "87645be1-f4f4-4d5e-9276-ce312616d02a",
-      "_createdOn": 1765302485539
+    "829ef205-7826-490f-928b-9092037807db": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "ownerName": "Dimitar",
+      "movieId": "7f584d27-51a5-4f51-807c-925e52acaf2f",
+      "_createdOn": 1765327584406
     },
-    "d4851891-c713-4afd-940e-bddf9d8857c3": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
-      "ownerName": "OgiG",
-      "movieId": "79b0d252-5f63-4a92-ad5d-265be6d82498",
-      "_createdOn": 1765302487724
-    },
-    "2836326e-84b0-4daf-9cd1-a61dbf729bf3": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
-      "ownerName": "OgiG",
+    "2ee62005-1d9f-477c-9202-2fc95f987b4f": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "ownerName": "Dimitar",
       "movieId": "33e0e27c-3660-4b10-a66b-f42b5fea16d3",
-      "_createdOn": 1765302489709
+      "_createdOn": 1765328394400
     },
-    "a4ee1259-ac8c-4a6d-8016-a60a496a945a": {
-      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be21",
-      "ownerName": "OgiG",
-      "movieId": "0e5d6bd6-4119-4988-9e06-25ae8885adb6",
-      "_createdOn": 1765303969772
+    "95a9adeb-d199-4c2c-a3e1-0223ed24d800": {
+      "_ownerId": "35c62d76-8152-4626-8712-eeb96381be22",
+      "ownerName": "Dimitar",
+      "movieId": "79b0d252-5f63-4a92-ad5d-265be6d82498",
+      "_createdOn": 1765362460171
     }
   }
 }

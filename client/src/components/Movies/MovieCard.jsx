@@ -4,12 +4,14 @@ import MovieRating from './MovieRating';
 import { useUserContext } from '../../contexts/UserContext';
 import useCollections from '../../hooks/useWatchlistCollections';
 import useTopTenCollection from '../../hooks/useTopTenCollection';
+import useTopTenCheck from '../../hooks/useTopTenCheck';
 
 export default function MovieCard({ title, poster, director, year, rating, id, movies }) {
 	const { addToTopTens } = useTopTenCollection();
-	const navigate = useNavigate();
 	const { addToCollection } = useCollections();
+	const navigate = useNavigate();
 	const user = useUserContext().user;
+	const isInUserList = useTopTenCheck({ movieId: id });
 
 	const clickHandler = () => {
 		navigate(`/movies/${id}`);
@@ -38,12 +40,14 @@ export default function MovieCard({ title, poster, director, year, rating, id, m
 				<MovieLike />
 				{user && (
 					<div className='flex flex-col'>
-						<button
-							onClick={addToTopTensHandler}
-							className='text-amber-400 hover:text-amber-500 mb-5 hover:cursor-pointer'
-						>
-							Add to Top10's
-						</button>
+						{isInUserList.isInUserList && (
+							<button
+								onClick={addToTopTensHandler}
+								className='text-amber-400 hover:text-amber-500 mb-5 hover:cursor-pointer'
+							>
+								Add to Top10's
+							</button>
+						)}
 						<button
 							onClick={addToWatchlistHandler}
 							className='text-amber-400 hover:text-amber-500 mb-1 hover:cursor-pointer'
